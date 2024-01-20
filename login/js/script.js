@@ -25,6 +25,7 @@ links.forEach(link => {
        forms.classList.toggle("show-signup");
     })
 })
+
 /*=========================Singup validation================ */
 function validateSignUp() {
     //<<<<<<  Name validation  >>>>>>>
@@ -38,7 +39,7 @@ function validateSignUp() {
         nameError.innerHTML="Your full name must containt atleast 5 letters"
         return false
     }
-   
+
     else if (/^[a-zA-Z ]+$/.test(name)==false){
        
        document.getElementById("nameError").innerHTML="Your name can only contain letters. "
@@ -72,20 +73,54 @@ function validateSignUp() {
         ageError.innerHTML='';
 
       }
-    //<<<<<<  email validation  >>>>>>>
+   /*=========================email validation ================ */
     var emailError =document.getElementById("emailError");
     var email=document.getElementById("email").value;
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
+   
+//      var xhttp = new XMLHttpRequest();
+     
+//     xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       if(this.responseText == 'true'){
+//         emailError.innerHTML="Email already exists"
+//         return false
+        
+//       } 
+//     }
+//  };
+//  xhttp.open("POST", "../php/connection.php=" + email, true);
+//  xhttp.send();
+// const email = $('#email').val();
+
+//   $.ajax({
+//     url: '../php/connection.php',
+//     type: 'POST',
+//     data: {
+//       email: email
+//     },
+//     dataType: 'json',
+//     success: function(response) {
+//       if (response.status === 'error') {
+//         // email already exists
+        
+//         emailError.innerHTML=response.message;
+//         return false
+//       } 
+//     }
+//   });
+    
      if(email==""){
         
         emailError.innerHTML="Your email please "
         return false 
     }
-       
+    
     else if (!emailPattern.test(email)) {
       emailError.innerHTML = "Invalid email format [name@example.com]";
         return false 
     } 
+    
     else {
       emailError.textContent = "";
     }  
@@ -135,10 +170,7 @@ function validateSignUp() {
             day: 'numeric'});
         data="Are you sure you want to submit this form?"+"\n"+"Full name : "+name+"\n"+"Date of birth : "+formattedDate+"\n"+"Email : "+email+"\n"+"Gender : "+genderValue
         re=confirm(data)
-        if(re==true){
-          alert("Registration Successful")
-        }
-        else{
+        if(re==false){
           return false
         }
         
