@@ -19,7 +19,6 @@
     
 }
 
-
 .form{
     position: absolute;
     max-width: 430px;
@@ -27,10 +26,6 @@
     padding: 30px;
     border-radius: 6px;
     background: #FFF;
-}
-
-.form.signup{
-    margin-top: 150px;
 }
 header{
     font-size: 28px;
@@ -140,4 +135,3 @@ font-weight: 600;
     padding-bottom:27px;
     
 }
-

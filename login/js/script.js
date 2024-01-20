@@ -19,7 +19,6 @@ pwShowHide.forEach(eyeIcon => {
     })
 })      
 
-
 /*=========================Singup validation================ */
 function validateSignUp() {
     //<<<<<<  Name validation  >>>>>>>
@@ -94,8 +93,11 @@ function validateSignUp() {
     var genderValue=""
     if(male==false&&female==false){
         genderError.innerHTML="Please select your Gender "
-        
         return false
+    }
+    else{
+        genderError.innerHTML=""
+
     }
     if(male==true){
       genderValue="M"

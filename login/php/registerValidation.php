@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          }
     else{
     // insert user data 
+    // statements to prevent SQL injection
+
     $stmt = mysqli_prepare($connect, "insert into users (full_name,date_of_birth,gender,email,password)VALUES (?, ?, ?, ?, ?)");
 
     if($stmt){
