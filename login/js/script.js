@@ -19,12 +19,6 @@ pwShowHide.forEach(eyeIcon => {
     })
 })      
 
-links.forEach(link => {
-    link.addEventListener("click", e => {
-       e.preventDefault(); //preventing form submit
-       forms.classList.toggle("show-signup");
-    })
-})
 
 /*=========================Singup validation================ */
 function validateSignUp() {
@@ -78,37 +72,6 @@ function validateSignUp() {
     var email=document.getElementById("email").value;
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
    
-//      var xhttp = new XMLHttpRequest();
-     
-//     xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       if(this.responseText == 'true'){
-//         emailError.innerHTML="Email already exists"
-//         return false
-        
-//       } 
-//     }
-//  };
-//  xhttp.open("POST", "../php/connection.php=" + email, true);
-//  xhttp.send();
-// const email = $('#email').val();
-
-//   $.ajax({
-//     url: '../php/connection.php',
-//     type: 'POST',
-//     data: {
-//       email: email
-//     },
-//     dataType: 'json',
-//     success: function(response) {
-//       if (response.status === 'error') {
-//         // email already exists
-        
-//         emailError.innerHTML=response.message;
-//         return false
-//       } 
-//     }
-//   });
     
      if(email==""){
         

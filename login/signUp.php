@@ -1,14 +1,9 @@
 <?php
 session_start();
-$messageLogin="";
-$messageSignUp="";
-if(isset($_SESSION["login_alert"])){
-    $messageLogin= "Check your email or password please";
-    unset($_SESSION["login_alert"]);
-}
-if(isset($_SESSION["signUpAlert"])){
-    $messageSignUp= "Ready to login to your account ";
-    unset($_SESSION["signUpAlert"]);
+$message = "";
+if (isset($_SESSION["email_alert"])) {
+    $message = "Email already exists, please try another one.";
+    unset($_SESSION["email_alert"]);
 }
 ?>
 <!DOCTYPE html>
@@ -18,20 +13,17 @@ if(isset($_SESSION["signUpAlert"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ZipBooks|Login </title>
+    <title> ZipBooks|Signup </title>
     <link rel="icon" type="image/png" href="../assets/icon.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles.css">
 
-    <style>
-    body {
-        background-color: red;
-    }
-    </style>
+
+
 </head>
 
 <body>
@@ -71,51 +63,73 @@ if(isset($_SESSION["signUpAlert"])){
             </div>
         </div>
     </nav>
-    <section class="containerL forms">
-        <div class="form login">
+
+    <section class="containerL">
+
+        <!-- Signup Form -->
+        <div class="form signup">
+
             <div class="form-content">
-                <header>Login</header>
-                <p style="color:red;text-align:center;font-size:13px;font-weight:600;padding-top:5px">
-                    <?php echo $messageLogin; ?>
+                <header>Signup
+                    <p style="color:red;text-align:center;font-size:13px;font-weight:600;padding-top:5px">
+                        <?php echo $message; ?>
+                    </p>
+                </header>
 
-                <p>
-                <p style="color:green;text-align:center;font-size:13px;font-weight:600;padding-top:5px">
-                    <?php echo $messageSignUp; ?>
-
-                <p>
-                <form action=" php/loginValidation.php" method="POST" onsubmit="return validateLogin()">
-
+                <form action="php/registerValidation.php" name="form" method="POST" onsubmit="return validateSignUp()">
                     <div class="field">
-                        <input type="email" placeholder="Email" class="input" id="loginEmail" name="loginEmail"
-                            autocomplete="off">
-                        <p id="loginEmailError"></p>
+                        <input type="text" placeholder="Full name" class="input" name="fullName" id="fullName"
+                            maxlength="32" />
+                        <p id="nameError"></p>
+
+                    </div>
+                    <div class="dateBirth">
+                        <div class="field">
+                            <label for="dateBirth" class="birth">Date of birth : </label>
+                            <input type="date" id="dateBirth" name="dateBirth" />
+                            <p id="ageError"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Email" class="input checkEmail" name="email" id="email">
+                        <p id="emailError"></p>
+                    </div>
+                    <div class="gender">
+                        <label for="gender">Gender : </label>
+                        <input type="radio" name="gender" value="M" id="male"> Male
+                        <input type="radio" name="gender" value="F" id="female"> Female
+                        <p id="genderError"></p>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Create password" autocomplete="off" class="password"
+                            name="password" id="pass">
+                        <p id="passError"></p>
                     </div>
 
                     <div class="field">
-                        <input type="password" placeholder="Password" class="password" id="loginPass" autocomplete="off"
-                            name="loginPassword">
-                        <p id="loginPassError"></p>
-
+                        <input type="password" placeholder="Confirm password" autocomplete="off" class="password"
+                            id="confirmPass">
+                        <p id="confirmPassError">
+                        </p>
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
-                    <div class="form-link">
-                        <a href="#" class="forgot-pass">Forgot password?</a>
-                    </div>
-
                     <div class="field">
-                        <input type="submit" value="Login" class="button">
+
+                        <input type="submit" value="Signup" class="button">
                     </div>
                 </form>
 
                 <div class="form-link">
-                    <span>Don't have an account? <a href="signUp.php">Signup</a></span>
+                    <span>Already have an account? <a href="login.php">Login</a></span>
                 </div>
             </div>
 
 
 
-        </div>
+
+
+
 
         </div>
     </section>
