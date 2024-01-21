@@ -89,7 +89,8 @@ include("login/php/userData.php");
     <div class="content">
         <section class="section">
             <h2>Change Password</h2>
-            <form action="php/passwordCheck.php" name="form" method="POST" onsubmit="return newPasswordValidation()">
+            <form action="user-settings-php/passwordCheck.php" name="form" method="POST"
+                onsubmit="return newPasswordValidation()">
                 <div class="field">
                     <input type="password" placeholder="Current Password" autocomplete="off" class="password"
                         name="current_password" id="current_password">
@@ -118,7 +119,7 @@ include("login/php/userData.php");
 
         <section class="section">
             <h2>Delete Account</h2>
-            <form action="php/deleteAccount.php" method="post"
+            <form action="user-settings-php/deleteAccount.php" method="post"
                 onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
                 <div class="field">
 
@@ -129,7 +130,7 @@ include("login/php/userData.php");
 
         <section class="section">
             <h2>Update Profile Information</h2>
-            <form action="php/updateFullName.php" method="post" onsubmit="return nameValidation()">
+            <form action="user-settings-php/updateFullName.php" method="post" onsubmit="return nameValidation()">
                 <div class="field">
                     <input type="text" placeholder="Full name" class="input" name="fullName" id="fullName"
                         maxlength="32" />
@@ -141,7 +142,7 @@ include("login/php/userData.php");
                     <input type="submit" value="Update Full name" class="button">
                 </div>
             </form>
-            <form action="php/updateDateBirth.php" method="post" onsubmit="return dateValidation()">
+            <form action="user-settings-php/updateDateBirth.php" method="post" onsubmit="return dateValidation()">
                 <div class="dateBirth">
                     <div class="field">
                         <label for="dateBirth" class="birth">Date of birth : </label>
