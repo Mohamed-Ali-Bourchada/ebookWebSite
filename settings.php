@@ -1,7 +1,5 @@
 <?php
 include("login/php/userData.php");
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +7,6 @@ include("login/php/userData.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About ZipBooks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -17,12 +14,15 @@ include("login/php/userData.php");
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="stylesheet" href="login/css/style.css">
+    <link rel="stylesheet" href="settingsStyle.css">
+    <script src="js/settingsScripts.js"></script>
 
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <title>ZipBooks|Settings</title>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg  bg-white fixed-top " id="navbar" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
             <a href="home.php">
@@ -46,7 +46,7 @@ include("login/php/userData.php");
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacts">Contact</a>
@@ -61,15 +61,16 @@ include("login/php/userData.php");
                                     aria-haspopup="true" aria-expanded="false">
                                     <i class="bi bi-person-lines-fill"></i>
                                     <?php
-                                echo $userName;
-                                ?>
+                            echo $userName;
+                            ?>
                                     <!-- Display the user's name with an icon -->
                                 </button>
                                 <div class="test">
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item nav-link" href="#"><i class="bi bi-person-fill"></i>
                                             Profile</a>
-                                        <a class="dropdown-item nav-link" href="#"><i class="bi bi-gear-fill"></i>
+                                        <a class="dropdown-item nav-link" href="settings.php"><i
+                                                class="bi bi-gear-fill"></i>
                                             Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item nav-link" href="login/login.php"><i
@@ -85,45 +86,75 @@ include("login/php/userData.php");
             </div>
         </div>
     </nav>
+    <div class="content">
+        <section class="section">
+            <h2>Change Password</h2>
+            <form action="php/passwordCheck.php" name="form" method="POST" onsubmit="return newPasswordValidation()">
+                <div class="field">
+                    <input type="password" placeholder="Current Password" autocomplete="off" class="password"
+                        name="current_password" id="current_password">
+                    <p id="current_passError"></p>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="New Password" autocomplete="off" class="password"
+                        name="newPassword" id="pass">
+                    <p id="newPassError"></p>
+                </div>
 
-    <!-- Main Content - About Page -->
-    <section class="container mt-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1>About ZipBooks</h1>
-                <p>Welcome to ZipBooks, your go-to platform for downloading a wide range of books in various genres.
-                    Whether you're an avid reader, a student, or someone looking to explore new worlds through
-                    literature, ZipBooks has something for everyone.</p>
+                <div class="field">
+                    <input type="password" placeholder="Confirm New Password" autocomplete="off" class="password"
+                        id="confirmPass">
+                    <p id="newConfirmPassError">
+                    </p>
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
 
-                <p>At ZipBooks, we believe in the power of knowledge and the joy of reading. Our platform is designed
-                    to provide easy access to a diverse collection of books, covering topics from fiction to
-                    non-fiction, educational to entertainment.</p>
+                <div class="field">
 
-                <p>Key Features:</p>
-                <ul>
-                    <li>Extensive Library: Explore a vast collection of books from different genres.</li>
-                    <li>User-Friendly Interface: Enjoy a seamless browsing and downloading experience.</li>
-                    <li>Accessibility: Access your favorite books anytime, anywhere.</li>
-                    <li>Community Engagement: Connect with fellow readers, share recommendations, and discover new
-                        favorites.</li>
-                </ul>
+                    <input type="submit" value="Change password" class="button">
+                </div>
+            </form>
+        </section>
 
-                <p>ZipBooks is committed to promoting literacy and fostering a love for reading. Join our community
-                    today and embark on a journey of knowledge, imagination, and discovery!</p>
-            </div>
+        <section class="section">
+            <h2>Delete Account</h2>
+            <form action="php/deleteAccount.php" method="post"
+                onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+                <div class="field">
 
-            <!-- Sidebar (Optional) -->
-            <div class="col-lg-4">
-                <h2>Contact Us</h2>
-                <p>If you have any questions, feedback, or suggestions, feel free to reach out to us:</p>
-                <p>Email: info@zipbooks.com</p>
-                <p>Phone: +1 (123) 456-7890</p>
-            </div>
-        </div>
-    </section>
+                    <input type="submit" value="Delete my account" class="button">
+                </div>
+            </form>
+        </section>
 
-    <!-- Bootstrap JS and Popper.js -->
+        <section class="section">
+            <h2>Update Profile Information</h2>
+            <form action="php/updateFullName.php" method="post" onsubmit="return nameValidation()">
+                <div class="field">
+                    <input type="text" placeholder="Full name" class="input" name="fullName" id="fullName"
+                        maxlength="32" />
+                    <p id="nameError"></p>
 
+                </div>
+                <div class="field">
+
+                    <input type="submit" value="Update Full name" class="button">
+                </div>
+            </form>
+            <form action="php/updateDateBirth.php" method="post" onsubmit="return dateValidation()">
+                <div class="dateBirth">
+                    <div class="field">
+                        <label for="dateBirth" class="birth">Date of birth : </label>
+                        <input type="date" id="dateBirth" name="dateBirth" />
+                        <p id="ageError"></p>
+                    </div>
+                    <div class="field">
+
+                        <input type="submit" value="Update date of birth" class="button">
+                    </div>
+            </form>
+        </section>
+    </div>
 </body>
 
 </html>

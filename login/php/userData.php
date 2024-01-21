@@ -3,6 +3,8 @@ include("connection.php");
 session_start();
 // Retrieve the value from SESSION
 $receivedValue=$_SESSION["user_email"];
+
+
 // Prepare and execute the SQL query
 $stmt = mysqli_prepare($connect, "SELECT full_name FROM users WHERE email = ?");
 mysqli_stmt_bind_param($stmt, "s", $receivedValue);
@@ -27,5 +29,5 @@ if ($getName) {
     header("Location: ../error.html");
 }
 
-mysqli_close($connect);
+
 ?>

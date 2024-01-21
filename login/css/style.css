@@ -87,7 +87,6 @@ form{
 .field .button{
     color: #fff;
     background-color: #FF6F03;
-    transition: all 0.3s ease;
     cursor: pointer;
 }
 .field .button:hover{

@@ -1,0 +1,54 @@
+.field input,
+.field .button {
+    height: 50px;
+    width: 75%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 50px;
+    margin: auto;
+
+}
+
+.field input {
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
+}
+
+
+
+.section {
+    max-width: 550px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.content {
+    margin-top: 150px
+}

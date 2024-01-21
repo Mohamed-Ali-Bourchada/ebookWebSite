@@ -49,9 +49,9 @@ include("login/php/userData.php");
                         <li class="nav-item">
                             <a class="nav-link" href="#contacts">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="login/login.php">Login</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
 
                             <div class="btn-group test">
@@ -66,7 +66,8 @@ include("login/php/userData.php");
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item nav-link" href="#"><i class="bi bi-person-fill"></i>
                                             Profile</a>
-                                        <a class="dropdown-item nav-link" href="#"><i class="bi bi-gear-fill"></i>
+                                        <a class="dropdown-item nav-link" href="settings.php"><i
+                                                class="bi bi-gear-fill"></i>
                                             Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item nav-link" href="login/login.php"><i
