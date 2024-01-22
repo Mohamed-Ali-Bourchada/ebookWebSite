@@ -18,7 +18,12 @@ include("login/php/userData.php");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
-
+    <style>
+    a {
+        text-decoration: none;
+        color: black
+    }
+    </style>
 </head>
 
 <body>
@@ -42,18 +47,16 @@ include("login/php/userData.php");
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+                            <a class="nav-link " aria-current="page" href="home.php">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link active" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacts">Contact</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="login/login.php">Login</a>
-                        </li> -->
+
                         <li class="nav-item">
 
                             <div class="btn-group test">
@@ -67,9 +70,11 @@ include("login/php/userData.php");
                                 </button>
                                 <div class="test">
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item nav-link" href="#"><i class="bi bi-person-fill"></i>
+                                        <a class="dropdown-item nav-link" href="profil.php"><i
+                                                class="bi bi-person-fill"></i>
                                             Profile</a>
-                                        <a class="dropdown-item nav-link" href="#"><i class="bi bi-gear-fill"></i>
+                                        <a class="dropdown-item nav-link" href="settings.php"><i
+                                                class="bi bi-gear-fill"></i>
                                             Settings</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item nav-link" href="login/login.php"><i
@@ -87,7 +92,7 @@ include("login/php/userData.php");
     </nav>
 
     <!-- Main Content - About Page -->
-    <section class="container mt-5">
+    <section class="container" style="margin-top:150px">
         <div class="row">
             <div class="col-lg-8">
                 <h1>About ZipBooks</h1>
@@ -116,14 +121,17 @@ include("login/php/userData.php");
             <div class="col-lg-4">
                 <h2>Contact Us</h2>
                 <p>If you have any questions, feedback, or suggestions, feel free to reach out to us:</p>
-                <p>Email: info@zipbooks.com</p>
-                <p>Phone: +1 (123) 456-7890</p>
+                <div class="d-flex align-items-center">
+
+                    <p class="mr-2"><a href="mailto:mohamedbourchda123@gmail.com"><i class="bi bi-envelope-at"
+                                style="font-size: 30px;margin-right:30px"></i></a></p>
+                    <p><a href="tel:58690686"><i class="bi bi-telephone-outbound" style="font-size: 30px;"></i></a></p>
+                </div>
             </div>
-        </div>
     </section>
 
-    <!-- Bootstrap JS and Popper.js -->
 
+    </footer>
 </body>
 
 </html>

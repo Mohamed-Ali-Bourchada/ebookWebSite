@@ -64,7 +64,8 @@ include("login/php/userData.php");
                                 </button>
                                 <div class="test">
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item nav-link" href="#"><i class="bi bi-person-fill"></i>
+                                        <a class="dropdown-item nav-link" href="profil.php"><i
+                                                class="bi bi-person-fill"></i>
                                             Profile</a>
                                         <a class="dropdown-item nav-link" href="settings.php"><i
                                                 class="bi bi-gear-fill"></i>
