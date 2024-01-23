@@ -18,10 +18,11 @@ include("login/php/userData.php");
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
     <title>ZipBooks|Home</title>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg  bg-white fixed-top " id="navbar" aria-label="Offcanvas navbar large">
+    <nav class="bg-white navbar navbar-expand-lg   fixed-top " id="navbar" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
             <a href="home.php">
                 <img src="assets/logo.png" alt="logo de site web " class="mainNavLogo"></a>
@@ -84,12 +85,37 @@ include("login/php/userData.php");
             </div>
         </div>
     </nav>
+    <footer class="bg-white text-center py-3 site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved <span
+                            style="color:#FF6F03;text-decoration:underline">Mohamed
+                            Ali
+                            Bourchada</span>
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><img src="assets/facebook.png" alt="instagram Icon" /></a>
+                        </li>
+                        <li><a class="twitter" href="#"><img src="assets/twitter.png" alt="instagram Icon" /></a></li>
+                        <li><a class="instagram" href="#"><img src="assets/instagram.png" alt="instagram Icon" /></a>
+                        </li>
+                        <li><a class="linkedin" href="#"><img src="assets/linkedin.png" alt="instagram Icon" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
-</body>
 
-</html>
+
+
 
 </body>
 
