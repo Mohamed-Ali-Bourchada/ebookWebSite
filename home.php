@@ -15,7 +15,7 @@ include("login/php/userData.php");
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
     <title>ZipBooks|Home</title>
 
@@ -48,11 +48,9 @@ include("login/php/userData.php");
                             <a class="nav-link" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacts">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="login/login.php">Login</a>
-                        </li> -->
+
                         <li class="nav-item">
 
                             <div class="btn-group test">
@@ -85,6 +83,137 @@ include("login/php/userData.php");
             </div>
         </div>
     </nav>
+    <div class="cover-container">
+        <div class="container">
+            <div class="cover-text">
+                <h1>Discover the Joy of Reading</h1>
+                <p>Explore a wide range of books at Zip Books. Immerse yourself in captivating stories and
+                    enrich your knowledge.</p>
+                <a href="#ebookSection" class="btn btn-primary">Explore Books</a>
+            </div>
+        </div>
+    </div>
+    <!-- list of books -->
+    <div class="main" id="ebookSection">
+
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+        <div class="ebook-card">
+            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
+            <h2>Financial Terms Dictionary</h2>
+            <p>By Thomas Herold</p>
+            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
+        </div>
+
+    </div>
+
+    <!-- footer -->
     <footer class="bg-white text-center py-3 site-footer">
         <div class="container">
             <div class="row">
@@ -98,12 +227,17 @@ include("login/php/userData.php");
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="#"><img src="assets/facebook.png" alt="instagram Icon" /></a>
+                        <li><a class="facebook" href="https://www.facebook.com/mohamed.bourchada.7/"><img
+                                    src="assets/facebook.png" alt="facebook Icon" /></a>
                         </li>
-                        <li><a class="twitter" href="#"><img src="assets/twitter.png" alt="instagram Icon" /></a></li>
-                        <li><a class="instagram" href="#"><img src="assets/instagram.png" alt="instagram Icon" /></a>
+                        <li><a class="twitter" href="https://twitter.com/MohamedBrrr"><img src="assets/twitter.png"
+                                    alt="twitter Icon" /></a>
                         </li>
-                        <li><a class="linkedin" href="#"><img src="assets/linkedin.png" alt="instagram Icon" /></a>
+                        <li><a class="instagram" href="https://www.instagram.com/mohamed_bourchada/"><img
+                                    src="assets/instagram.png" alt="instagram Icon" /></a>
+                        </li>
+                        <li><a class="github" href="https://github.com/dalios-tg"><img src="assets/github.png"
+                                    alt="github Icon" /></a>
                         </li>
                     </ul>
                 </div>

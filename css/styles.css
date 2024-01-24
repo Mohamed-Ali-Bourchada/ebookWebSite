@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e2e9;
+}
+
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+.offcanvas-body{
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 18px;
+}
+.mainNavLogo{
+width: 180px;
+height: auto;
+margin-left: 50px;
+}
+
+.dropdown-menu{
+  padding-left: 20px;
+}
+.site-footer {
+       
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+        font-weight: 600;
+        color: #232836;    
+       text-align: center;
+   }
+   .site-footer .social-icons {
+       text-align: right
+   }
+
+   .site-footer .social-icons a {
+       width: 40px;
+       height: 40px;
+       margin-left: 6px;
+       margin-right: 0;    
+   }
+   .copyright-text {
+     margin-top: 10px;
+   }
+
+  
+
+   @media (max-width:767px) {
+       .site-footer {
+           padding-bottom: 0
+       }
+       .site-footer .copyright-text,
+       .site-footer .social-icons {
+           text-align: center
+       }
+   }
+
+   .social-icons {
+       padding-left: 0;
+       margin-bottom: 0;
+       list-style: none;  
+   }
+
+   .social-icons li {
+       display: inline-block; 
+   }
+
+
+   .social-icons a {
+       display: inline-block; 
+       text-align: center;
+       margin-right: 8px;       
+   }
+
+.social-icons img{
+    width: 44px;
+
+}
+.github img{
+    width: 40px;
+}
+
+
+   @media (max-width:767px) {
+       .social-icons li.title {
+           display: block;
+           margin-right: 0;
+           font-weight: 600
+       }
+   }
+.cover-container {
+    background-image: url('../assets/cover.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    
+   
+}
+
+.cover-text {
+  
+    border-radius: 10px;
+    max-width: 600px;
+    margin-right: auto;
+    margin-top: 18vh;
+    
+}
+
+.cover-text h1 {
+    font-size: 4rem;
+    color: #000033;
+    font-weight: bolder;
+    
+}
+
+.cover-text p {
+    font-size: 2rem;
+    color: #000022;
+    padding-top: 15px;
+    padding-bottom: 10px;
+   
+    
+}
+
+.btn-primary {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: #0000EE;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: 0.4s ease-in-out;
+}
+
+.main {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15vh;
+}
+
+.ebook-card {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ebook-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    aspect-ratio: 1;
+}
+
+.ebook-card h2 {
+    font-size: 1.5rem;
+    color: #000033;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.ebook-card p {
+    font-size: 1rem;
+    color: #000022;
+    margin: 0;
+}
+
+.ebook-card a {
+    display: block;
+    font-size: 1rem;
+    margin-top: auto;
+    text-decoration: none;
+    color: #333;
+    background-color: #000022;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bolder;
+    
+}
+.ebook-card i{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.ebook-card a:hover {
+    transition: 1s ease-in-out;
+    font-size: 1.1em;
+}

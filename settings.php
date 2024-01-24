@@ -13,9 +13,9 @@ include("login/php/userData.php");
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="login/css/style.css">
-    <link rel="stylesheet" href="settingsStyle.css">
+    <link rel="stylesheet" href="css/settingsStyle.css">
     <script src="js/settingsScripts.js"></script>
 
     <link rel="icon" type="image/png" href="assets/icon.png">
@@ -49,7 +49,7 @@ include("login/php/userData.php");
                             <a class="nav-link" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacts">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="login/login.php">Login</a>
@@ -120,8 +120,13 @@ include("login/php/userData.php");
 
         <section class="section">
             <h2>Delete Account</h2>
-            <form action="user-settings-php/deleteAccount.php" method="post"
-                onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+            <form action="user-settings-php/deleteAccount.php" method="post" onsubmit="return deletePassword()">
+                <div class="field">
+                    <input type="password" name="delete_account_pass" placeholder="Password" autocomplete="off"
+                        class="password" id="delete_password">
+                    <p id="delete_password_error"></p>
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
                 <div class="field">
 
                     <input type="submit" value="Delete my account" class="button">
@@ -132,6 +137,7 @@ include("login/php/userData.php");
         <section class="section last-section">
             <h2>Update Profile Information</h2>
             <form action="user-settings-php/updateFullName.php" method="post" onsubmit="return nameValidation()">
+
                 <div class="field">
                     <input type="text" placeholder="Full name" class="input" name="fullName" id="fullName"
                         maxlength="32" />
@@ -139,16 +145,29 @@ include("login/php/userData.php");
 
                 </div>
                 <div class="field">
+                    <input type="password" name="delete_account_pass" placeholder="Password" autocomplete="off"
+                        class="password" id="delete_password2">
+                    <p id="delete_password_error2"></p>
+                    <i class='bx bx-hide eye-icon'></i>
+                </div>
+                <div class="field">
 
                     <input type="submit" value="Update Full name" class="button">
                 </div>
             </form>
             <form action="user-settings-php/updateDateBirth.php" method="post" onsubmit="return dateValidation()">
+
                 <div class="dateBirth">
                     <div class="field">
                         <label for="dateBirth" class="birth">Date of birth : </label>
                         <input type="date" id="dateBirth" name="dateBirth" />
                         <p id="ageError"></p>
+                    </div>
+                    <div class="field">
+                        <input type="password" name="delete_account_pass" placeholder="Password" autocomplete="off"
+                            class="password" id="delete_password3">
+                        <p id="delete_password_error3"></p>
+                        <i class='bx bx-hide eye-icon'></i>
                     </div>
                     <div class="field">
 
@@ -167,21 +186,26 @@ include("login/php/userData.php");
                             Bourchada.</span>
                     </div>
                 </div>
-
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="#"><img src="assets/facebook.png" alt="instagram Icon" /></a>
+                        <li><a class="facebook" href="https://www.facebook.com/mohamed.bourchada.7/"><img
+                                    src="assets/facebook.png" alt="facebook Icon" /></a>
                         </li>
-                        <li><a class="twitter" href="#"><img src="assets/twitter.png" alt="instagram Icon" /></a></li>
-                        <li><a class="instagram" href="#"><img src="assets/instagram.png" alt="instagram Icon" /></a>
+                        <li><a class="twitter" href="https://twitter.com/MohamedBrrr"><img src="assets/twitter.png"
+                                    alt="twitter Icon" /></a>
                         </li>
-                        <li><a class="linkedin" href="#"><img src="assets/linkedin.png" alt="instagram Icon" /></a>
+                        <li><a class="instagram" href="https://www.instagram.com/mohamed_bourchada/"><img
+                                    src="assets/instagram.png" alt="instagram Icon" /></a>
+                        </li>
+                        <li><a class="github" href="https://github.com/dalios-tg"><img src="assets/github.png"
+                                    alt="github Icon" /></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-    </footer>
+
+
 </body>
 
 </html>

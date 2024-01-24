@@ -57,9 +57,25 @@ function nameValidation(){
     }
      else{
         nameError.innerHTML=""
+         var passwordInput=document.getElementById('delete_password2').value;
+    var textError=document.getElementById("delete_password_error2")
+    if(passwordInput==""){
+        textError.innerHTML="Write your password please.";
+        return false
+    }
     }
 }
 
+
+function deletePassword(){
+    var passwordInput=document.getElementById('delete_password').value;
+    var textError=document.getElementById("delete_password_error")
+    if(passwordInput==""){
+        textError.innerHTML="Write your password please.";
+        return false
+    }
+
+}
 function dateValidation(){
     //<<<<<<  age validation  >>>>>>>
     ageError=document.getElementById("ageError");
@@ -84,6 +100,14 @@ function dateValidation(){
         }
       else{
         ageError.innerHTML='';
+         var passwordInput=document.getElementById('delete_password3').value;
+    var textError=document.getElementById("delete_password_error3")
+    if(passwordInput==""){
+        textError.innerHTML="Write your password please.";
+        return false
+    }
 
       }
 }
+
+

@@ -17,91 +17,13 @@ include("login/php/userData.php");
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profil_styles.css">
+
     <link rel="icon" type="image/png" href="assets/icon.png">
+
     <title>ZipBooks|Profil</title>
-    <style>
-    body {
-        background-color: #e0e2e9;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
 
-    .profile-container {
-        background-color: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        max-width: 450px;
-        width: 100%;
-        height: 460px;
-        text-align: center
-    }
-
-    .profile-header {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 35px;
-        font-weight: 600;
-        color: #FF6F03;
-    }
-
-    .profile-details {
-        text-align: justify;
-        color: #232836;
-        font-weight: 600;
-
-    }
-
-    .settings_button {
-        text-decoration: none;
-        color: white;
-        font-weight: 600;
-        border-radius: 50px;
-        background-color: #FF6F03;
-        cursor: pointer;
-        padding: 20px;
-
-    }
-
-    .gender {
-        margin-bottom: 35px
-    }
-
-    .settings_button:hover {
-        background-color: #016dcb;
-        transition: 1.2s;
-        text-decoration: none;
-        color: white
-    }
-
-    .user_data,
-    .user_data_gender,
-    .user_data_birth {
-        font-size: 14px;
-        font-weight: bold
-    }
-
-    .user_data {
-        margin-left: 62px;
-
-    }
-
-    .user_data_gender {
-        margin-left: 45px;
-
-    }
-
-    .profile-details div {
-        padding: 10px;
-        padding-bottom: 20px;
-        font-weight: bolder
-    }
-    </style>
 </head>
 
 <body>
@@ -131,7 +53,7 @@ include("login/php/userData.php");
                             <a class="nav-link" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contacts">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="login/login.php">Login</a>
@@ -197,6 +119,7 @@ include("login/php/userData.php");
 
 
     </div>
+    <!-- footer -->
     <footer class="bg-white text-center py-3 site-footer">
         <div class="container">
             <div class="row">
@@ -204,19 +127,23 @@ include("login/php/userData.php");
                     <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved <span
                             style="color:#FF6F03;text-decoration:underline">Mohamed
                             Ali
-                            Bourchada.</span>
-
+                            Bourchada</span>
                     </p>
                 </div>
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="#"><img src="assets/facebook.png" alt="instagram Icon" /></a>
+                        <li><a class="facebook" href="https://www.facebook.com/mohamed.bourchada.7/"><img
+                                    src="assets/facebook.png" alt="facebook Icon" /></a>
                         </li>
-                        <li><a class="twitter" href="#"><img src="assets/twitter.png" alt="instagram Icon" /></a></li>
-                        <li><a class="instagram" href="#"><img src="assets/instagram.png" alt="instagram Icon" /></a>
+                        <li><a class="twitter" href="https://twitter.com/MohamedBrrr"><img src="assets/twitter.png"
+                                    alt="twitter Icon" /></a>
                         </li>
-                        <li><a class="linkedin" href="#"><img src="assets/linkedin.png" alt="instagram Icon" /></a>
+                        <li><a class="instagram" href="https://www.instagram.com/mohamed_bourchada/"><img
+                                    src="assets/instagram.png" alt="instagram Icon" /></a>
+                        </li>
+                        <li><a class="github" href="https://github.com/dalios-tg"><img src="assets/github.png"
+                                    alt="github Icon" /></a>
                         </li>
                     </ul>
                 </div>
