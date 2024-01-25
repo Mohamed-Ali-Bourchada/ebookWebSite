@@ -120,8 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="cover-text">
                 <h1>Discover the Joy of Reading</h1>
-                <p>Explore a wide range of books at Zip Books. Immerse yourself in captivating stories and
-                    enrich your knowledge.</p>
+                <!-- <p>Explore a wide range of books at Zip Books. Immerse yourself in captivating stories and
+                    enrich your knowledge.</p> -->
                 <a href="#ebookSection" class="btn btn-primary">Explore Books</a>
             </div>
         </div>

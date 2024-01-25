@@ -108,19 +108,19 @@ margin-left: 50px;
 
 .cover-text {
   
-    border-radius: 10px;
-    max-width: 600px;
+    max-width: 700px;
     margin-right: auto;
     margin-top: 18vh;
     
 }
 
 .cover-text h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: #000033;
     font-weight: bolder;
     
 }
+
 
 .cover-text p {
     font-size: 2rem;
@@ -139,6 +139,7 @@ margin-left: 50px;
     border: none;
     border-radius: 50px;
     transition: 0.4s ease-in-out;
+    margin-top: 2em;
 }
 
 .main {
