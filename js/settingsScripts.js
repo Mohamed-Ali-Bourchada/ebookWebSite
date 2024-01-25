@@ -109,5 +109,70 @@ function dateValidation(){
 
       }
 }
+ function emailValidation(email,emailError){
+      
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
+     if(email==""){
+        
+        emailError.innerHTML="Your email please "
+        return false 
+    }
+    
+    else if (!emailPattern.test(email)) {
+      emailError.innerHTML = "Invalid email format [name@example.com]";
+        return false 
+    } 
+    
+    else {
+      emailError.textContent = "";
+    }  
+ }
+function validateContactForm(){
+    var name=document.getElementById("fullName").value
+    var nameError=document.getElementById("nameError")
+    var email=document.getElementById("email").value
+    var emailError=document.getElementById("emailError")
+    var subject=document.getElementById("subject").value
+    var subjectError=document.getElementById("subjectError")
+     var message=document.getElementById("message").value
+    var messageError=document.getElementById("messageError")
+    // name test
+     if(name==""){
+        nameError.innerHTML="Your full name please "
+        return false 
+    }
+    else if (name.length<5){
+        nameError.innerHTML="Your full name must containt atleast 5 letters"
+        return false
+    }
 
-
+    else if (/^[a-zA-Z ]+$/.test(name)==false){
+       
+       document.getElementById("nameError").innerHTML="Your name can only contain letters. "
+        return false
+    }
+     else{
+        nameError.innerHTML=""}
+    // email test
+   emailValidation(email,emailError)
+    if (emailValidation(email,emailError)==false){
+        return false 
+    }
+    // subject Test
+    if(subject==""){
+        subjectError.innerHTML="Subject is required"
+        return false
+    }
+    else{
+        subjectError.innerHTML=""
+    }
+    // message Test
+    if(message==""){
+        messageError.innerHTML="Message is required"
+        return false
+    }
+    else{
+        messageError.innerHTML=""
+    }
+    
+}

@@ -2,7 +2,17 @@
 include("login/php/userData.php");
 include("login/php/connection.php");
 
+$test = "0"; 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $search = $_POST["search"];
+    $search = strtolower($search);
+    $select = "SELECT * FROM books WHERE LOCATE('$search', LOWER(title_book)) > 0";
+    $result = mysqli_query($connect, $select);
 
+    if ($result && mysqli_num_rows($result) > 0) {
+        $test = "1"; 
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +29,15 @@ include("login/php/connection.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
     <title>ZipBooks|Home</title>
+    <script>
+    function searchTest() {
+        var search = document.getElementById("search").value;
+        if (search == "") {
+            return false
+
+        }
+    }
+    </script>
 
 </head>
 
@@ -79,10 +98,23 @@ include("login/php/connection.php");
                             </div>
 
                         </li>
+                        <li class="nav-item">
+                            <form class="form" onsubmit="return searchTest()" method="POST"
+                                style="display: flex; align-items: center;">
+                                <input class="form-control " type="search" name="search" placeholder="Search"
+                                    aria-label="Search" id="search"
+                                    style="margin-right:15px;margin-left:10px;border-radius:50px" />
+
+                                <button class="btn" type="submit" id="searchButton">Search</button>
+
+                            </form>
+                        </li>
+
                     </ul>
                 </div>
             </div>
         </div>
+
     </nav>
     <div class="cover-container">
         <div class="container">
@@ -96,7 +128,20 @@ include("login/php/connection.php");
     </div>
     <!-- list of books -->
     <div class="main" id="ebookSection">
-        <?php 
+        <?php
+    if ($test == "1") {
+        while ($data = $result->fetch_assoc()) {
+            echo "<div class='ebook-card'>";
+            echo "<img src='{$data['image_url']}' alt='{$data['title_book']}' style='width: 100%;'>";
+            echo "<h2>{$data['title_book']}</h2>";
+            echo "<p>By {$data['writer']}</p>";
+            echo "<a href='{$data['file_url']}' target='_blank'>Download <i class='bi bi-download'></i></a>";
+            echo "</div>"; 
+        }
+    } else if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($search)) {
+        echo "<p>No results found for '{$search}'.</p>";
+    } else {
+        // Display all data when the user hasn't performed a search
         $select_books_data = "SELECT * FROM books";
         $result_books_data = mysqli_query($connect, $select_books_data);
 
@@ -108,6 +153,7 @@ include("login/php/connection.php");
             echo "<a href='{$data['file_url']}' target='_blank'>Download <i class='bi bi-download'></i></a>";
             echo "</div>"; // close ebook-card div
         }
+    }
     ?>
     </div>
 
@@ -125,30 +171,23 @@ include("login/php/connection.php");
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="https://www.facebook.com/mohamed.bourchada.7/"><img
-                                    src="assets/facebook.png" alt="facebook Icon" /></a>
+                        <li><a class="facebook" href="https://www.facebook.com/mohamed.bourchada.7/"
+                                target="_blank"><img src="assets/facebook.png" alt="facebook Icon" /></a>
                         </li>
-                        <li><a class="twitter" href="https://twitter.com/MohamedBrrr"><img src="assets/twitter.png"
-                                    alt="twitter Icon" /></a>
+                        <li><a class="twitter" href="https://twitter.com/MohamedBrrr" target="_blank"><img
+                                    src="assets/twitter.png" alt="twitter Icon" /></a>
                         </li>
-                        <li><a class="instagram" href="https://www.instagram.com/mohamed_bourchada/"><img
-                                    src="assets/instagram.png" alt="instagram Icon" /></a>
+                        <li><a class="instagram" href="https://www.instagram.com/mohamed_bourchada/"
+                                target="_blank"><img src="assets/instagram.png" alt="instagram Icon" /></a>
                         </li>
-                        <li><a class="github" href="https://github.com/dalios-tg"><img src="assets/github.png"
-                                    alt="github Icon" /></a>
+                        <li><a class="github" href="https://github.com/dalios-tg" target="_blank"><img
+                                    src="assets/github.png" alt="github Icon" /></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
-
-
-
-
-
-
-
 </body>
 
 </html>

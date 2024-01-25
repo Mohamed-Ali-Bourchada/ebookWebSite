@@ -1,24 +1,24 @@
-// const forms = document.querySelector(".forms"),
-//       pwShowHide = document.querySelectorAll(".eye-icon"),
-//       links = document.querySelectorAll(".link");
-
-// pwShowHide.forEach(eyeIcon => {
-//     eyeIcon.addEventListener("click", () => {
-//         let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+ function emailValidation(){
+      var emailError =document.getElementById("emailError");
+    var email=document.getElementById("email").value;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
+   
+    
+     if(email==""){
         
-//         pwFields.forEach(password => {
-//             if(password.type === "password"){
-//                 password.type = "text";
-//                 eyeIcon.classList.replace("bx-hide", "bx-show");
-//                 return;
-//             }
-//             password.type = "password";
-//             eyeIcon.classList.replace("bx-show", "bx-hide");
-//         })
-        
-//     })
-// })      
-
+        emailError.innerHTML="Your email please "
+        return false 
+    }
+    
+    else if (!emailPattern.test(email)) {
+      emailError.innerHTML = "Invalid email format [name@example.com]";
+        return false 
+    } 
+    
+    else {
+      emailError.textContent = "";
+    }  
+ }
 /*=========================Singup validation================ */
 function validateSignUp() {
   
@@ -68,25 +68,10 @@ function validateSignUp() {
 
       }
    /*=========================email validation ================ */
-    var emailError =document.getElementById("emailError");
-    var email=document.getElementById("email").value;
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
-   
-    
-     if(email==""){
-        
-        emailError.innerHTML="Your email please "
-        return false 
-    }
-    
-    else if (!emailPattern.test(email)) {
-      emailError.innerHTML = "Invalid email format [name@example.com]";
-        return false 
-    } 
-    
-    else {
-      emailError.textContent = "";
-    }  
+  emailValidation()
+   if(emailValidation()==false){
+    return false
+  }
     //<<<<<<  gender validation  >>>>>>>   
     var male = document.getElementById('male').checked;
     var female = document.getElementById('female').checked;
