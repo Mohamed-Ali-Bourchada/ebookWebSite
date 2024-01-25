@@ -109,8 +109,7 @@ include("login/php/userData.php");
                     <li>Extensive Library: Explore a vast collection of books from different genres.</li>
                     <li>User-Friendly Interface: Enjoy a seamless browsing and downloading experience.</li>
                     <li>Accessibility: Access your favorite books anytime, anywhere.</li>
-                    <li>Community Engagement: Connect with fellow readers, share recommendations, and discover new
-                        favorites.</li>
+
                 </ul>
 
                 <p>ZipBooks is committed to promoting literacy and fostering a love for reading. Join our community

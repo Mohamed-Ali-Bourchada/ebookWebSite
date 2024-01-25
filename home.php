@@ -1,5 +1,6 @@
 <?php
 include("login/php/userData.php");
+include("login/php/connection.php");
 
 
 ?>
@@ -95,122 +96,19 @@ include("login/php/userData.php");
     </div>
     <!-- list of books -->
     <div class="main" id="ebookSection">
+        <?php 
+        $select_books_data = "SELECT * FROM books";
+        $result_books_data = mysqli_query($connect, $select_books_data);
 
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-        <div class="ebook-card">
-            <img src="assets/book2.jpeg" alt="Financial Terms Dictionary" style="width: 100%;">
-            <h2>Financial Terms Dictionary</h2>
-            <p>By Thomas Herold</p>
-            <a href="financial-terms-dictionary.pdf">Download <i class="bi bi-download"></i></a>
-        </div>
-
+        while ($data = $result_books_data->fetch_assoc()) {
+            echo "<div class='ebook-card'>";
+            echo "<img src='{$data['image_url']}' alt='{$data['title_book']}' style='width: 100%;'>";
+            echo "<h2>{$data['title_book']}</h2>";
+            echo "<p>By {$data['writer']}</p>";
+            echo "<a href='{$data['file_url']}' target='_blank'>Download <i class='bi bi-download'></i></a>";
+            echo "</div>"; // close ebook-card div
+        }
+    ?>
     </div>
 
     <!-- footer -->
