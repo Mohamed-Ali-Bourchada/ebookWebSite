@@ -29,7 +29,6 @@ margin-left: 50px;
 }
 .site-footer {
        
-       position: fixed;
        left: 0;
        bottom: 0;
        width: 100%;
@@ -96,51 +95,103 @@ margin-left: 50px;
            font-weight: 600
        }
    }
-.cover-container {
-    background-image: url('../assets/cover.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    
-   
-}
 
-.cover-text {
+
+.cover-text {   
   
     max-width: 700px;
     margin-right: auto;
     margin-top: 18vh;
+    padding-left: 70px;
     
 }
+.cover-container {
+    display: flex;
+    height: 100vh;
+    margin-top: 9vh;
+    background-color: white;
+    padding: 1em;
+}
 
+.cover-container .cover-text {
+    max-width: 700px;
+    margin-left: auto;
+    margin-top: 18vh;
+}
+
+.cover-container .container {
+    background-image: url('../assets/home_img.png');
+    background-position: right;
+    height: 100%;
+    flex: 1;
+    background-size: cover;
+}
 .cover-text h1 {
     font-size: 4.5rem;
     color: #000033;
     font-weight: bolder;
-    
+
 }
-
-
 .cover-text p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #000022;
     padding-top: 15px;
     padding-bottom: 10px;
-   
-    
+
+
 }
 
 .btn-primary {
     font-size: 1.5rem;
-    padding: 10px 20px;
-    background-color: #0000EE;
+    background-color: #FF6F03;
     color: #fff;
     border: none;
     border-radius: 50px;
     transition: 0.4s ease-in-out;
-    margin-top: 2em;
+
+    padding: 15px 30px;
 }
+
+.btn-primary:hover {
+    background-color: #000022;
+}
+@media (max-width: 1347px) {
+    .cover-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 170vh;
+    }
+
+    .cover-container .cover-text {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        
+        
+    }
+
+    .cover-container .container {
+        background-position: center bottom;
+        height: 50vh;
+        width: 100%;
+        margin-top: 5vh;    
+    }
+        .btn-primary{
+            margin-bottom: 2em;
+        }
+}
+
+   @media (max-width:767px) {
+       .social-icons li.title {
+           display: block;
+           margin-right: 0;
+           font-weight: 600
+       }
+   }
+
+
+
+
 
 .main {
     padding: 2rem;
@@ -152,14 +203,15 @@ margin-left: 50px;
 
 .ebook-card {
     background-color: #f2f2f2;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
-    width: 250px;
+    width: 330px;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
+    
 }
 
 .ebook-card img {
@@ -188,7 +240,7 @@ margin-left: 50px;
     margin-top: auto;
     text-decoration: none;
     color: #333;
-    background-color: #000022;
+    background-color: #28A745;
     color: #fff;
     padding: 8px 16px;
     border-radius: 5px;
@@ -202,7 +254,7 @@ margin-left: 50px;
 
 .ebook-card a:hover {
     transition: 1s ease-in-out;
-    font-size: 1.1em;
+    
 }
 
 #searchButton{

@@ -117,13 +117,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </nav>
     <div class="cover-container">
+
+        <div class="cover-text">
+            <h1>Discover the Joy of Reading</h1>
+            <p>Explore diverse books at Zip Books, immerse in captivating stories, and enrich your knowledge.</p>
+            <a href="#ebookSection" class="btn btn-primary">Explore Books</a>
+        </div>
         <div class="container">
-            <div class="cover-text">
-                <h1>Discover the Joy of Reading</h1>
-                <!-- <p>Explore a wide range of books at Zip Books. Immerse yourself in captivating stories and
-                    enrich your knowledge.</p> -->
-                <a href="#ebookSection" class="btn btn-primary">Explore Books</a>
-            </div>
+
         </div>
     </div>
     <!-- list of books -->
@@ -135,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<img src='{$data['image_url']}' alt='{$data['title_book']}' style='width: 100%;'>";
             echo "<h2>{$data['title_book']}</h2>";
             echo "<p>By {$data['writer']}</p>";
-            echo "<a href='{$data['file_url']}' target='_blank'>Download <i class='bi bi-download'></i></a>";
+            echo "<a href='{$data['file_url']}'class='bg-success' target='_blank'>Download <i class='bi bi-download'></i></a>";
             echo "</div>"; 
         }
     } else if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($search)) {
@@ -158,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <!-- footer -->
-    <footer class="bg-white text-center py-3 site-footer">
+    <footer class="bg-white text-center py-3 site-footer ">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">

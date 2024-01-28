@@ -120,7 +120,7 @@ include("login/php/userData.php");
 
     </div>
     <!-- footer -->
-    <footer class="bg-white text-center py-3 site-footer">
+    <footer class="bg-white text-center fixed-bottom py-3 site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">

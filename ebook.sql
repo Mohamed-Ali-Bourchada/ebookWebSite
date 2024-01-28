@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 11:54 PM
+-- Generation Time: Jan 26, 2024 at 06:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,6 +80,7 @@ INSERT INTO `books` (`id_book`, `title_book`, `image_url`, `writer`, `file_url`)
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `full_name` varchar(32) NOT NULL,
   `email` varchar(255) NOT NULL,
   `subject` varchar(100) NOT NULL,
@@ -91,16 +92,12 @@ CREATE TABLE `messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`id`, `full_name`, `email`, `subject`, `message`, `insertion_date_time`) VALUES
-(1, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjasdaojkshdiajshbdiojahsdiopaisdjaopishdkjasdahljskdhalkjshdlkjahsdlkjahslkjdhaljksdkasda', '2024-01-25 22:40:47'),
-(2, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjasdaojkshdiajshbdiojahsdiopaisdjaopishdkjasdahljskdhalkjshdlkjahsdlkjahslkjdhaljksdkasda', '2024-01-25 22:41:18'),
-(3, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'CREATE TABLE messages (\r\n    id INT AUTO_INCREMENT PRIMARY KEY,\r\n    full_name VARCHAR(32) NOT NULL,\r\n    email VARCHAR(255) NOT NULL,\r\n    subject VARCHAR(100) NOT NULL,\r\n    message TEXT NOT NULL,\r\n    insertion_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP\r\n);\r\n', '2024-01-25 22:41:25'),
-(4, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'header(\"Location: ./cheader(\"Location: ./contact.php\");header(\"Location: ./contact.php\");header(\"Location: ./contact.php\");header(\"Location: ./contact.php\");header(\"Location: ./contact.php\");ontact.php\");', '2024-01-25 22:41:44'),
-(5, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'header(\"Location: ../contact.php\");header(\"Location: ../contact.php\");header(\"Location: ../contact.php\");header(\"Location: ../contact.php\");header(\"Location: ../contact.php\");', '2024-01-25 22:42:08'),
-(6, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', '        echo \\\"<script>setTimeout(function(){ window.location.href=\\\'../contact.php\\\'; });</script>\\\";\\r\\n        echo \\\"<script>setTimeout(function(){ window.location.href=\\\'../contact.php\\\'; });</script>\\\";\\r\\n', '2024-01-25 22:50:53'),
-(7, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', '            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n', '2024-01-25 22:52:22'),
-(8, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', '            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n', '2024-01-25 22:52:40'),
-(9, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', '            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n            echo \"<script>setTimeout(function(){ window.location.href=\'../settings.php\'; });</script>\";\r\n', '2024-01-25 22:52:50');
+INSERT INTO `messages` (`id`, `user_id`, `full_name`, `email`, `subject`, `message`, `insertion_date_time`) VALUES
+(1, 6, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)', '2024-01-26 16:22:12'),
+(2, 6, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)', '2024-01-26 16:22:19'),
+(3, 6, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)', '2024-01-26 16:23:15'),
+(4, 8, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'asda$receivedValue$receivedValue$receivedValue$receivedValue$receivedValue$receivedValue', '2024-01-26 16:24:33'),
+(5, 9, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'Mohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cn', '2024-01-26 16:26:43');
 
 -- --------------------------------------------------------
 
@@ -123,7 +120,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `full_name`, `date_of_birth`, `email`, `password`, `gender`, `created_at`) VALUES
-(6, 'asdasdad', '2003-02-02', 'mohamedbourchada123@gmail.com', 'Bourchada@2cn', 'M', '2024-01-23 00:03:23');
+(6, 'asdasdad', '2003-02-02', 'mohamedbourchada123@gmail.com', 'Bourchada@2cn', 'M', '2024-01-23 00:03:23'),
+(8, 'akram bourchada', '2003-02-02', 'Akrambourchada2@gmail.com', 'Mohamed@2cn', 'M', '2024-01-26 16:22:57'),
+(9, 'asdasda', '2003-02-22', 'asdad@sd.dd', 'Mohamed@2cn', 'M', '2024-01-26 16:25:29');
 
 --
 -- Indexes for dumped tables
@@ -140,7 +139,8 @@ ALTER TABLE `books`
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `users`
@@ -163,13 +163,23 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
