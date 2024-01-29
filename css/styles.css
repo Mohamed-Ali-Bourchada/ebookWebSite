@@ -127,7 +127,7 @@ margin-left: 50px;
     background-size: cover;
 }
 .cover-text h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     color: #000033;
     font-weight: bolder;
 
@@ -155,7 +155,21 @@ margin-left: 50px;
 .btn-primary:hover {
     background-color: #000022;
 }
-@media (max-width: 1347px) {
+@media (max-width: 1480px){
+.cover-container .cover-text {
+        
+        width: 600px;
+
+
+    }
+        .cover-container .cover-text h1 {
+    
+            font-size: 4em;
+    
+        }
+      
+}
+@media (max-width: 1370px) {
     .cover-container {
         flex-direction: column-reverse;
         align-items: center;
@@ -208,7 +222,7 @@ margin-left: 50px;
     margin: 1rem;
     padding: 1.5rem;
     text-align: center;
-    width: 330px;
+    width: 320px;
     display: flex;
     flex-direction:column;
     
