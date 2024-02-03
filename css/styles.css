@@ -108,7 +108,6 @@ margin-left: 50px;
 .cover-container {
     display: flex;
     height: 100vh;
-    margin-top: 9vh;
     background-color: white;
     padding: 1em;
 }
@@ -155,40 +154,45 @@ margin-left: 50px;
 .btn-primary:hover {
     background-color: #000022;
 }
-@media (max-width: 1480px){
-.cover-container .cover-text {
-        
-        width: 600px;
+
+   @keyframes slideIn {
+       from {
+           opacity: 0;
+           transform: translateY(-50px);
+       }
+
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
+   .cover-container {
+       animation: slideIn 1.5s ease-in-out;
+   }
 
 
-    }
-        .cover-container .cover-text h1 {
-    
-            font-size: 4em;
-    
-        }
-      
-}
-@media (max-width: 1370px) {
+
+
+@media (max-width: 1320px) {
     .cover-container {
         flex-direction: column-reverse;
-        align-items: center;
-        height: 170vh;
+        align-items: center;     
+               
     }
-
     .cover-container .cover-text {
         text-align: center;
-        margin: 0 auto;
-        padding: 0;
-        
-        
+        margin: 0;
+        padding: 0;  
+      
     }
-
+        .cover-text h1{
+            font-size: 3.5em;
+        }
     .cover-container .container {
-        background-position: center bottom;
-        height: 50vh;
-        width: 100%;
-        margin-top: 5vh;    
+        margin-top: 50px;
+        background-position: center;
+        width: 50%;
+       
     }
         .btn-primary{
             margin-bottom: 2em;
