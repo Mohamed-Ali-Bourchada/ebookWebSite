@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 06:01 PM
+-- Generation Time: Feb 07, 2024 at 12:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -97,7 +97,8 @@ INSERT INTO `messages` (`id`, `user_id`, `full_name`, `email`, `subject`, `messa
 (2, 6, 'mohamed ali bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)', '2024-01-26 16:22:19'),
 (3, 6, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)', '2024-01-26 16:23:15'),
 (4, 8, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'asda$receivedValue$receivedValue$receivedValue$receivedValue$receivedValue$receivedValue', '2024-01-26 16:24:33'),
-(5, 9, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'Mohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cn', '2024-01-26 16:26:43');
+(5, 9, 'akram bourchada', 'mohamedbourchada123@gmail.com', 'testestetsetseas', 'Mohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cnMohamed@2cn', '2024-01-26 16:26:43'),
+(6, 6, 'akram bourchada', 'Akrambourchada2@gmail.com', 'testestetsetseas', 'Bourchada@2cnBourchada@2cnBourchada@2cnBourchada@2cnBourchada@2cnBourchada@2cnBourchada@2cnBourchada@2cn', '2024-01-28 19:08:01');
 
 -- --------------------------------------------------------
 
@@ -120,9 +121,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `full_name`, `date_of_birth`, `email`, `password`, `gender`, `created_at`) VALUES
-(6, 'asdasdad', '2003-02-02', 'mohamedbourchada123@gmail.com', 'Bourchada@2cn', 'M', '2024-01-23 00:03:23'),
+(6, 'mohamed ali bourchada', '2003-02-02', 'mohamedbourchada123@gmail.com', 'Bourchada@2cn', 'M', '2024-01-23 00:03:23'),
 (8, 'akram bourchada', '2003-02-02', 'Akrambourchada2@gmail.com', 'Mohamed@2cn', 'M', '2024-01-26 16:22:57'),
-(9, 'asdasda', '2003-02-22', 'asdad@sd.dd', 'Mohamed@2cn', 'M', '2024-01-26 16:25:29');
+(9, 'asdasda', '2003-02-22', 'asdad@sd.dd', 'Mohamed@2cn', 'M', '2024-01-26 16:25:29'),
+(10, 'mohamed ali bourchada', '2003-02-02', 'mohamedali@gmail.com', 'Mohamed@2cn', 'M', '2024-01-28 20:20:42'),
+(11, 'mohamed ali bourchada', '2003-02-02', 'mohamedbourchada111@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 21:21:09'),
+(12, 'mohamed ali bourchada', '2003-02-02', 'mohamed@yahoo.com', 'Mohamed@2cn', 'M', '2024-02-06 21:22:16'),
+(13, 'mohamed ali bourchada', '2003-02-02', 'mohamed@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 21:24:32'),
+(14, 'mohamed ali bourchada', '2003-02-02', 'ma.bourchada@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:00:24'),
+(15, 'mohamed ali bourchada', '2003-02-02', 'mohamedbourchada@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:54:48'),
+(16, 'mohamed ali bourchada', '2003-12-02', 'mohamedbourc@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:55:30'),
+(17, 'mohamed ali bourchada', '2003-02-02', 'mohamedmohasdlk@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:56:40');
 
 --
 -- Indexes for dumped tables
@@ -163,13 +172,13 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
