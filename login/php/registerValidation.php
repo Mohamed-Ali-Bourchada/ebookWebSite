@@ -35,17 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               $response = curl_exec($ch);
               curl_close($ch);
               $data=json_decode($response,true);
-            if($data['deliverability']==="UNDELIVERABLE"){
-                echo "<script>alert('Email not valid');</script>";
+            if ($data['deliverability'] === "UNDELIVERABLE" || $data["is_disposable_email"]["value"] === true){
+                echo "<script>alert('Email not valid try another one Please');</script>";
                 echo "<script>setTimeout(function(){ window.location.href='../signUp.php'; });</script>";
-                 echo"testeatiudha;lsdal;kjsd;alk;lsda";  
+                 exit();
                    
-              }
-            
-              
-            else
-            {   
-                        
+              }                           
+             else
+                {     
                     // insert user data 
                     // statements to prevent SQL injection
 
@@ -68,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     }
 
- 
-            }
+                }
+            
     
  
     } 

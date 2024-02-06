@@ -17,6 +17,7 @@
     
     else {
       emailError.textContent = "";
+      
     }  
  }
 
@@ -137,7 +138,7 @@ function validateSignUp() {
       confirmPasswordValidation()
       if(confirmPasswordValidation()==false){
         return false}
-      
+        var email=document.getElementById("email").value;
         var formattedDate = birthDate.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'numeric',
