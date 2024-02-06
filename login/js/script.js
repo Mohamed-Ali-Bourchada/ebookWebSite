@@ -19,6 +19,45 @@
       emailError.textContent = "";
     }  
  }
+
+ /*=========================password validation function ================ */
+
+function passwordValidation(){
+  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    var pass=document.getElementById("pass").value;
+    var passError =document.getElementById("passError");
+    
+    if(pass.trim()===""){
+        passError.innerHTML="Enter a Password";
+       
+        return false
+    }
+    else if(!passwordPattern.test(pass)){
+        passError.innerHTML="Week password";
+       
+        return false
+    }
+    else{
+      
+        passError.innerHTML="";
+        return true;
+    }
+}
+/*=========================confirm password validation function ================ */
+function confirmPasswordValidation(){
+  var confirmPass=document.getElementById("confirmPass").value;
+  var pass=document.getElementById("pass").value;
+  var confirmPassError =document.getElementById("confirmPassError");
+    if (pass!=confirmPass) {
+        confirmPassError.innerHTML="Check your password please"
+        return false;
+      
+}
+else{
+  confirmPassError.innerHTML=""
+  return true;
+}
+}
 /*=========================Singup validation================ */
 function validateSignUp() {
   
@@ -91,65 +130,31 @@ function validateSignUp() {
     else{genderValue="F"}
     
      //<<<<<<  password validation  >>>>>>>  
-    passwordValidation();
-     //<<<<<<  confirm password validation  >>>>>>>  
-     confrimPasswordValidation()
-    if(confrimPasswordValidation()){
-var formattedDate = birthDate.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric'});
+     passwordValidation()
+     if(passwordValidation()==false){
+      return false}
+    //<<<<<<  confirm password validation  >>>>>>>  
+      confirmPasswordValidation()
+      if(confirmPasswordValidation()==false){
+        return false}
+      
+        var formattedDate = birthDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'});
         data="Are you sure you want to submit this form?"+"\n"+"Full name : "+name+"\n"+"Date of birth : "+formattedDate+"\n"+"Email : "+email+"\n"+"Gender : "+genderValue
         re=confirm(data)
         if(re==false){
-          return false
-        }
-    }
-   
-       
-   
-
-
-       
-}
-/*=========================password validation function ================ */
-
-function passwordValidation(){
-  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    var pass=document.getElementById("pass").value;
-    var passError =document.getElementById("passError");
+            return false
     
-    if(pass==""){
-        passError.innerHTML="Enter a Password"
-       
-        return false
-    }
-    else if(!passwordPattern.test(pass)){
-        passError.innerHTML="Week password"
-       
-        return false
-    }
-    else{
       
-        passError.innerHTML=""
-    }
+  }
+   
 }
-/*=========================confirm password validation function ================ */
-function confrimPasswordValidation(){
-  var confirmPass=document.getElementById("confirmPass").value;
-    var confirmPassError =document.getElementById("confirmPassError");
-    if (pass!=confirmPass) {
-        confirmPassError.innerHTML="Check your passwrod please"
-        return false;
-      
-}
-else{
-  confirmPassError.innerHTML=""
-  return true;
-}
-}
+
 /*=========================Login validation================ */
 function validateLogin(){
+  
   var email=document.getElementById("loginEmail").value;
   var pass=document.getElementById("loginPass").value;
   emailError=document.getElementById("loginEmailError")
@@ -160,13 +165,16 @@ function validateLogin(){
   }
   else{
       emailError.innerHTML="";
+     
 
   }
   if(pass==""){
     passError.innerHTML="Password is required";
+    return false
   }
   else{
     passError.innerHTML="";
+    
 
   }
   

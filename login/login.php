@@ -47,7 +47,7 @@ if(isset($_SESSION["signUpAlert"])){
                 <form action=" php/loginValidation.php" method="POST" onsubmit="return validateLogin()">
 
                     <div class="field">
-                        <input type="email" placeholder="Email" class="input" id="loginEmail" name="loginEmail"
+                        <input type="text" placeholder="Email" class="input" id="loginEmail" name="loginEmail"
                             autocomplete="off">
                         <p id="loginEmailError"></p>
                     </div>
@@ -83,11 +83,11 @@ if(isset($_SESSION["signUpAlert"])){
     </section>
 
     <!-- JavaScript -->
-    <script src="js/script.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
