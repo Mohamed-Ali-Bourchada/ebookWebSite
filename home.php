@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($test == "1") {
         while ($data = $result->fetch_assoc()) {
             echo "<div class='ebook-card'>";
-            echo "<img src='{$data['image_url']}' alt='{$data['title_book']}' style='width: 100%;'>";
+            echo "<img src='{$data['image_url']}' alt='{$data['title_book']}'  loading='lazy' style='width: 100%;'>";
             echo "<h2>{$data['title_book']}</h2>";
             echo "<p>By {$data['writer']}</p>";
             echo "<a href='{$data['file_url']}'class='bg-success' target='_blank'>Download <i class='bi bi-download'></i></a>";
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         while ($data = $result_books_data->fetch_assoc()) {
             echo "<div class='ebook-card'>";
-            echo "<img src='{$data['image_url']}' alt='{$data['title_book']}' style='width: 100%;'>";
+            echo "<img src='{$data['image_url']}' alt='{$data['title_book']}' loading='lazy' style='width: 100%;'>";
             echo "<h2>{$data['title_book']}</h2>";
             echo "<p>By {$data['writer']}</p>";
             echo "<a href='{$data['file_url']}' target='_blank'>Download <i class='bi bi-download'></i></a>";
