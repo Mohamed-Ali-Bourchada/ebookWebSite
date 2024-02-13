@@ -1,8 +1,3 @@
-<?php
-include("login/php/userData.php");
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +11,8 @@ include("login/php/userData.php");
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="assets/icon.png">
-
-
-
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/icon.png">
     <style>
     a {
         text-decoration: none;
@@ -32,8 +24,11 @@ include("login/php/userData.php");
 <body>
     <!-- Navigation Bar -->
     <?php 
-    require("nav_bar.php");
-    ?>
+  
+        require("nav_bar.php");
+        ?>
+
+
 
     <!-- Main Content - About Page -->
     <section class="container" style="margin-top:150px">
@@ -76,8 +71,8 @@ include("login/php/userData.php");
 
     <!-- footer -->
     <?php 
-    require "footer.php";
-    ?>
+        require("footer.php");
+        ?>
 </body>
 
 </html>

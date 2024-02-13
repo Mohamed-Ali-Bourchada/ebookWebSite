@@ -25,45 +25,9 @@ if (isset($_SESSION["email_alert"])) {
 </head>
 
 <body>
-    <nav class="bg-white navbar navbar-expand-lg   fixed-top " id="navbar" aria-label="Offcanvas navbar large">
-        <div class="container-fluid">
-            <a href="login.php">
-                <img src="../assets/logo.png" alt="logo de site web " class="mainNavLogo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2"
-                aria-controls="offcanvasNavbar2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end text-bg-white" tabindex="-1" id="offcanvasNavbar2"
-                aria-labelledby="offcanvasNavbar2Label">
-                <div class="offcanvas-header">
-                    <img src="../assets/logo.png" alt="logo de site web" class="logo"></a>
-
-                    <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active" href="signUp.php">Signup</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../about-before-login.html">About</a>
-                        </li>
-
-
-
-
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </nav>
+    <?php 
+        require("nav_bar.php");
+        ?>
 
     <section class="containerL mt-5 mb-5">
 
@@ -134,36 +98,9 @@ if (isset($_SESSION["email_alert"])) {
 
         </div>
     </section>
-    <footer class="bg-white text-center fixed-bottom py-3 site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved <span
-                            style="color:#FF6F03;text-decoration:underline">Mohamed
-                            Ali
-                            Bourchada</span>
-                    </p>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="social-icons">
-                        <li><a class="facebook" href="https://www.facebook.com/mohamed.bourchada.7/"
-                                target="_blank"><img src="../assets/facebook.png" alt="facebook Icon" /></a>
-                        </li>
-                        <li><a class="twitter" href="https://twitter.com/MohamedBrrr" target="_blank"><img
-                                    src="../assets/twitter.png" alt="twitter Icon" /></a>
-                        </li>
-                        <li><a class="instagram" href="https://www.instagram.com/mohamed_bourchada/"
-                                target="_blank"><img src="../assets/instagram.png" alt="instagram Icon" /></a>
-                        </li>
-                        <li><a class="github" href="https://github.com/dalios-tg" target="_blank"><img
-                                    src="../assets/github.png" alt="github Icon" /></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php 
+    require("footer.php");
+    ?>
     <!-- JavaScript -->
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
