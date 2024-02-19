@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2024 at 12:09 AM
+-- Generation Time: Feb 19, 2024 at 11:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,7 +70,9 @@ INSERT INTO `books` (`id_book`, `title_book`, `image_url`, `writer`, `file_url`)
 (28, 'The Valuation Of Financia Companies', 'assets/books_images/The_Valuation_Of_Financia_Companies.jpg', 'Mario Massari,Gianfranco Gianfrate,Laura Zanetti', 'assets/pdfs_files/the-valuation-of-financial-companies.pdf'),
 (29, 'The White Coat Investor', 'assets/books_images/The_White_Coat_Investor.jpg', 'James M. Dahle,MD', 'assets/pdfs_files/the-white-coat-investor.pdf'),
 (30, 'Understanding Cooperative Societies Law', 'assets/books_images/Understanding_Cooperative_Societies_Law.jpg', 'Eluid Kitime', 'assets/pdfs_files/understanding-cooperative-societies-law-student-s-handbook.pdf'),
-(31, 'You Are What You Eat', 'assets/books_images/You_Are_What_You_Eat.png', 'James B. Driscoll', 'assets/pdfs_files/you-are-what-you-eat.pdf');
+(31, 'You Are What You Eat', 'assets/books_images/You_Are_What_You_Eat.png', 'James B. Driscoll', 'assets/pdfs_files/you-are-what-you-eat.pdf'),
+(32, 'The Psychology Of Motivation', 'assets/books_images/the-psychology-of-motivation.pdf.jpg', ' Richard Brown', 'assets/pdfs_files/the-psychology-of-motivation.pdf'),
+(33, 'Business Analysis Methodology Book', 'assets/books_images/business-analysis-methodology-book.png', 'Emrah Yayici', 'assets/pdfs_files/business-analysis-methodology-book.pdf');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,9 @@ INSERT INTO `users` (`user_id`, `full_name`, `date_of_birth`, `email`, `password
 (14, 'mohamed ali bourchada', '2003-02-02', 'ma.bourchada@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:00:24'),
 (15, 'mohamed ali bourchada', '2003-02-02', 'mohamedbourchada@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:54:48'),
 (16, 'mohamed ali bourchada', '2003-12-02', 'mohamedbourc@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:55:30'),
-(17, 'mohamed ali bourchada', '2003-02-02', 'mohamedmohasdlk@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:56:40');
+(17, 'mohamed ali bourchada', '2003-02-02', 'mohamedmohasdlk@gmail.com', 'Mohamed@2cn', 'M', '2024-02-06 22:56:40'),
+(19, 'mohi eddine', '2003-02-02', 'mouhigar5@gmail.com', 'Mohamed@2cn', 'M', '2024-02-07 20:35:34'),
+(20, 'akram bourchada', '2003-03-03', 'Akrambourchada@gmail.com', 'Mohamed@2cn', 'M', '2024-02-19 19:17:41');
 
 --
 -- Indexes for dumped tables
@@ -166,7 +170,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -178,7 +182,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
