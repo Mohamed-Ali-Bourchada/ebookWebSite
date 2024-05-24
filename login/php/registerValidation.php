@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender = $_POST["gender"];
     $password = $_POST["password"];
     $email = $_POST["email"];
-   
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+     
      // checking email is already existe or not
     $checkEmail="select * from users where email='$email'";
     $resultEmail=mysqli_query($connect,$checkEmail);
@@ -50,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     if($stmt)
                     {
-                        mysqli_stmt_bind_param($stmt, "sssss", $fullName,$dateBirth,$gender,$email,$password);
+                        mysqli_stmt_bind_param($stmt, "sssss", $fullName,$dateBirth,$gender,$email,$hashed_password);
                         $success = mysqli_stmt_execute($stmt);
                         if($success){
                             header("Location: ../login.php");

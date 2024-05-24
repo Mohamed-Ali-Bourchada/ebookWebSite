@@ -1,7 +1,15 @@
-<?php
-include("login/php/userData.php");
 
+<?php
+session_start();
+
+// Redirect to login page if user is not authenticated
+if (!isset($_SESSION["auth"])) {
+    header("Location: login/login.php");
+    exit(); 
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +36,7 @@ include("login/php/userData.php");
 
 <body>
     <?php 
+    include("login/php/userData.php");
     require("nav_bar.php");
     ?>
 
@@ -40,7 +49,8 @@ include("login/php/userData.php");
 
         <div class="profile-details">
             <div> <span class="titre">Name :</span>
-                <span class="user_data"><?php echo $profil_full_name?></span>
+                <span class="user_data"><?php 
+                echo $profil_full_name?></span>
             </div>
             <div><span>Email :</span><span class="user_data"> <?php echo $profil_email?></span></div>
 

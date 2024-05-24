@@ -1,6 +1,9 @@
 <?php
 include("connection.php");
-session_start();
+// Check if session is not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // Retrieve the value from SESSION
 $receivedValue=$_SESSION["user_email"];
 

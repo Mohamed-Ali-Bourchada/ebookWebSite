@@ -1,7 +1,13 @@
 <?php
 include("login/php/userData.php");
-
-
+// Check if session is not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION["auth"])){
+header("Location: login/login.php");
+exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +25,8 @@ include("login/php/userData.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/contact_css.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <title>ZipBooks|Home</title>
 
@@ -27,6 +35,18 @@ include("login/php/userData.php");
 <body>
     <?php 
     require("nav_bar.php");
+    if(isset($_SESSION["contact"])){
+                 echo "<script>
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Your message has been sent successfully',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>";
+        unset($_SESSION["contact"]);
+    }
     ?>
 
     <div class="contact_section">

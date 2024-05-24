@@ -1,6 +1,13 @@
 <?php
-include("login/php/userData.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include("login/php/connection.php");
+include("login/php/userData.php");
+if(!isset($_SESSION["auth"])){
+header("Location: login/login.php");
+exit();
+}
 
 $test = "0"; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $test = "1"; 
     }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/icon.png">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>ZipBooks|Home</title>
     <script>
     function searchTest() {
@@ -42,6 +53,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+         <?php
+if(isset($_SESSION['auth'])){
+    // Check if the alert has been shown previously
+    if(!isset($_SESSION['alert_shown'])) {
+        echo "<script>
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed in successfully'
+        });</script>";
+        
+        // Set the flag to indicate that the alert has been shown
+        $_SESSION['alert_shown'] = true;
+    }
+   
+}
+
+
+?>
+
     <nav class="bg-white navbar navbar-expand-lg   fixed-top " id="navbar" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
             <a href="home.php">
@@ -90,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 class="bi bi-gear-fill"></i>
                                             Settings</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item nav-link" href="login/login.php"><i
+                                        <a class="dropdown-item nav-link" href="signOut.php"><i
                                                 class="bi bi-box-arrow-right"></i>
                                             Logout</a>
                                     </div>

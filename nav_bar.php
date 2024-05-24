@@ -47,7 +47,7 @@
                                               class="bi bi-gear-fill"></i>
                                           Settings</a>
                                       <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item nav-link" href="login/login.php"><i
+                                      <a class="dropdown-item nav-link" href="signOut.php"><i
                                               class="bi bi-box-arrow-right"></i>
                                           Logout</a>
                                   </div>

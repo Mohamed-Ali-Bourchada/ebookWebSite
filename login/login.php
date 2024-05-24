@@ -1,16 +1,3 @@
-<?php
-session_start();
-$messageLogin="";
-$messageSignUp="";
-if(isset($_SESSION["login_alert"])){
-    $messageLogin= "Check your email or password please";
-    unset($_SESSION["login_alert"]);
-}
-if(isset($_SESSION["signUpAlert"])){
-    $messageSignUp= "Ready to login to your account ";
-    unset($_SESSION["signUpAlert"]);
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +7,7 @@ if(isset($_SESSION["signUpAlert"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> ZipBooks|Login </title>
     <link rel="icon" type="image/png" href="../assets/icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -32,20 +20,41 @@ if(isset($_SESSION["signUpAlert"])){
 
 <body>
     <?php 
+    session_start();
+
         require("nav_bar.php");
+        if(isset($_SESSION["login_alert"])){
+                echo "<script>
+        Swal.fire({
+            position: 'top-center',
+            icon: 'error',
+            title: 'Check your email or password please',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>";
+        unset($_SESSION["login_alert"]);
+        }
+         if(isset($_SESSION["signUpAlert"])){
+                echo "<script>
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Signup valid you can login now',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>";
+        unset($_SESSION["signUpAlert"]);
+}
         ?>
-    < <section class="containerL forms">
+    <section class="containerL forms">
         <div class="form login">
             <div class="form-content">
                 <header>Login</header>
-                <p style="color:red;text-align:center;font-size:13px;font-weight:600;padding-top:5px">
-                    <?php echo $messageLogin; ?>
+                   
 
-                <p>
-                <p style="color:green;text-align:center;font-size:13px;font-weight:600;padding-top:5px">
-                    <?php echo $messageSignUp; ?>
-
-                <p>
+            
                 <form action=" php/loginValidation.php" method="POST" onsubmit="return validateLogin()">
 
                     <div class="field">

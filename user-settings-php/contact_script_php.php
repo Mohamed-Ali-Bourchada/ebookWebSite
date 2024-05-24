@@ -1,4 +1,10 @@
 <?php
+
+// Check if session is not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include("../login/php/connection.php");
 include("../login/php/userData.php");
 
@@ -23,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, "issss", $user_id, $fullName, $email, $subject, $message);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('Your message has been sent');</script>";
-        echo "<script>setTimeout(function(){ window.location.href='../contact.php'; });</script>";
+        $_SESSION["contact"]=true;
+        header("Location: ../contact.php");
     } else {
         echo "Error: " . mysqli_error($connect);
     }

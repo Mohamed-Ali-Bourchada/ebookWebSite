@@ -1,7 +1,13 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include("login/php/userData.php");
 
-
+if(!isset($_SESSION["auth"])){
+header("Location: login/login.php");
+exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
