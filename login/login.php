@@ -33,7 +33,8 @@
             timer: 1500
         });
     </script>";
-        unset($_SESSION["login_alert"]);
+    unset($_SESSION["login_alert"]);
+        
         }
          if(isset($_SESSION["signUpAlert"])){
                 echo "<script>
@@ -60,13 +61,11 @@
                     <div class="field">
                         <input type="text" placeholder="Email" class="input" id="loginEmail" name="loginEmail"
                             autocomplete="off">
-                        <p id="loginEmailError"></p>
                     </div>
 
                     <div class="field">
                         <input type="password" placeholder="Password" class="password" id="loginPass" autocomplete="off"
                             name="loginPassword">
-                        <p id="loginPassError"></p>
 
                         <i class='bx bx-hide eye-icon'></i>
                     </div>

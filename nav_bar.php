@@ -55,6 +55,17 @@
                           </div>
 
                       </li>
+                      <?php
+                        if(isset($_SESSION["admin"]))
+                        {
+                        ?>
+                        <li class="nav-item">
+                              <a class="nav-link" href="admin_dashboard/index.php">
+                               Dashboard</a>
+                        </li>
+                        <?php 
+                        }
+                        ?>
                   </ul>
               </div>
           </div>

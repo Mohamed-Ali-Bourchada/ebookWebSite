@@ -54,7 +54,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
          <?php
+
 if(isset($_SESSION['auth'])){
+    // Check if the alert has been shown previously
+    if(!isset($_SESSION['alert_shown'])) {
+        echo "<script>
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed in successfully'
+        });</script>";
+        
+        // Set the flag to indicate that the alert has been shown
+        $_SESSION['alert_shown'] = true;
+    }
+   
+}
+if(isset($_SESSION['admin'])){
     // Check if the alert has been shown previously
     if(!isset($_SESSION['alert_shown'])) {
         echo "<script>
@@ -82,8 +108,7 @@ if(isset($_SESSION['auth'])){
 
 
 ?>
-
-    <nav class="bg-white navbar navbar-expand-lg   fixed-top " id="navbar" aria-label="Offcanvas navbar large">
+<nav class="bg-white navbar navbar-expand-lg   fixed-top " id="navbar" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
             <a href="home.php">
                 <img src="assets/logo.png" alt="logo de site web " class="mainNavLogo"></a>
@@ -139,6 +164,21 @@ if(isset($_SESSION['auth'])){
                             </div>
 
                         </li>
+                        <?php
+                        if(isset($_SESSION["admin"]))
+                        {
+                        ?>
+                        <li class="nav-item">
+                              <a class="nav-link" href="admin_dashboard/index.php">
+                               Dashboard</a>
+                        </li>
+                        <?php 
+                        }
+                        ?>
+                        
+                         
+
+
                         <li class="nav-item">
                             <form class="form" onsubmit="return searchTest()" method="POST"
                                 style="display: flex; align-items: center;">

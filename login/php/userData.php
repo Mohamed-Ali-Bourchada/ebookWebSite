@@ -9,7 +9,7 @@ $receivedValue=$_SESSION["user_email"];
 
 
 // Prepare and execute the SQL query
-$stmt = mysqli_prepare($connect, "SELECT full_name,date_of_birth,gender FROM users WHERE email = ?");
+$stmt = mysqli_prepare($connect, "SELECT * FROM users WHERE email = ?");
 mysqli_stmt_bind_param($stmt, "s", $receivedValue);
 mysqli_stmt_execute($stmt);
 
@@ -18,10 +18,14 @@ $result = mysqli_stmt_get_result($stmt);
 $getResult = mysqli_fetch_row($result);
 
 if ($getResult) {
-    $profil_full_name = $getResult[0];
+    $profil_full_name = $getResult[1];
     $profil_email = $receivedValue;
-    $profil_date_birth = $getResult[1];
-    if($getResult[2]=='M'){
+    $profil_date_birth = $getResult[2];
+    $is_admin=$getResult[7];
+   if($is_admin==1){
+     $_SESSION['admin']=true;
+   }
+    if($getResult[5]=='M'){
         $profil_gender = 'Male';
     }
     else{
@@ -30,7 +34,7 @@ if ($getResult) {
     }
     
 
-    $fullName = $getResult[0];
+    $fullName = $getResult[1];
     $spacePosition = strpos($fullName, ' ');
     if($spacePosition!=false){
         $userName = substr($fullName,0,$spacePosition);
