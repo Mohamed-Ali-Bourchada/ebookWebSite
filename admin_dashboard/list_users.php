@@ -88,7 +88,7 @@ function confirmDelete(event, actionURL) {
 }
 
 // modal for update user data
-async function modal(fullName, dateBirth, email, gender, isAdmin) {
+async function modal(fullName, dateBirth, email, gender, isAdmin, user_id) {
     const { value: formValues } = await Swal.fire({
         title: "Edit User",
         html: `
@@ -107,25 +107,26 @@ async function modal(fullName, dateBirth, email, gender, isAdmin) {
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <label for="gender" class="me-2">Gender</label>
-                    <input id="gender" name="gender" class="form-control" style="width: 70%;" value="${gender}">
+                    <label><input type="radio" name="gender" class="form-check-input" value="M" ${gender === 'M' ? 'checked' : ''}> Male</label>
+                    <label><input type="radio" name="gender" class="form-check-input" value="F" ${gender === 'F' ? 'checked' : ''}> Female</label>
                 </div>
+                
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <label for="is_admin" >Is Admin</label>
-                    
-                    <div>
-                        <label><input type="radio" name="is_admin" class="form-check-input" value="1" ${isAdmin === '1' ? 'checked' : ''}> Yes</label>
-                        <label><input type="radio" name="is_admin" class="form-check-input" value="0" ${isAdmin === '0' ? 'checked' : ''}> No</label>
-                    </div>
+                    <label for="is_admin" class="me-2">Is Admin</label>
+                    <label><input type="radio" name="is_admin" class="form-check-input" value="1" ${isAdmin === '1' ? 'checked' : ''}> Yes</label>
+                    <label><input type="radio" name="is_admin" class="form-check-input" value="0" ${isAdmin === '0' ? 'checked' : ''}> No</label>
+
                 </div>
             </div>
         `,
         focusConfirm: false,
         preConfirm: () => {
             return {
+                user_id: user_id,
                 full_name: document.getElementById("full_name").value,
                 date_birth: document.getElementById("date_birth").value,
                 email: document.getElementById("email").value,
-                gender: document.getElementById("gender").value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
                 is_admin: document.querySelector('input[name="is_admin"]:checked').value
             };
         }
@@ -139,15 +140,30 @@ async function modal(fullName, dateBirth, email, gender, isAdmin) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formValues)
-        })
-        .then(response => response.json())
-        
-        .catch(error => {
+        }).then(function(response){
+            return response.json();
+        }).then(function(formValues){
+            if (formValues.success) {
+                Swal.fire('Success', 'User updated successfully', 'success');
+                if (formValues.is_admin == 0) {
+                    setTimeout(function(){
+                        window.location.href = "../signOut.php";
+                    }, 1500);
+                } else {
+                    setTimeout(function(){
+                        window.location.reload();
+                    }, 1500);
+                }
+} else {
+    Swal.fire('Error', formValues.error, 'error');
+}
+
+        }).catch(function(error){
             console.error('Error:', error);
+            Swal.fire('Error', 'An error occurred while updating the user', 'error');
         });
     }
 }
-
 
 
 </script>
@@ -188,25 +204,30 @@ include("dashboard_nav.php"); // Include navbar.php file
         </thead>
         <tbody>
         <?php
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr>
-                    <td>" . $row['user_id'] . "</td>
-                    <td>" . $row['full_name'] . "</td>
-                    <td>" . $row['date_of_birth'] . "</td>
-                    <td>" . $row['email'] . "</td>
-                    <td>" . $row['gender'] . "</td>
-                    <td>" . $row['is_admin'] . "</td>
-                    <td>" . $row['created_at'] . "</td>
-                  <td class='d-flex justify-content-around'><input type='checkbox' name='usersToDelete[]' class='form-check-input' value='" . $row['user_id'] . "'><button type='button' class='btn btn-info btn-sm text-white' onclick='modal(
-            \"" . addslashes($row['full_name']) . "\",
-            \"" . $row['date_of_birth'] . "\",
-            \"" . addslashes($row['email']) . "\",
-            \"" . $row['gender'] . "\",
-            \"" . $row['is_admin'] . "\"
-        )'>Modify</button>
-</td></tr>";
-        }
-        ?>
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo "<tr>
+            <td>" . $row['user_id'] . "</td>
+            <td>" . $row['full_name'] . "</td>
+            <td>" . $row['date_of_birth'] . "</td>
+            <td>" . $row['email'] . "</td>
+            <td>" . $row['gender'] . "</td>
+            <td>" . $row['is_admin'] . "</td>
+            <td>" . $row['created_at'] . "</td>
+            <td class='d-flex justify-content-around'>
+                <input type='checkbox' name='usersToDelete[]' value='" . $row['user_id'] . "' class='form-check-input'>
+                <button type='button' class='btn btn-info btn-sm text-white' onclick='modal(
+                    \"" . addslashes($row['full_name']) . "\",
+                    \"" . $row['date_of_birth'] . "\",
+                    \"" . addslashes($row['email']) . "\",
+                    \"" . $row['gender'] . "\",
+                    \"" . $row['is_admin'] . "\",
+                    \"" . $row['user_id'] . "\"
+                )'>Modify</button>
+            </td>
+          </tr>";
+}
+?>
+
         </tbody>
     </table>
     </form>

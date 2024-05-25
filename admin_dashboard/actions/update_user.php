@@ -1,17 +1,19 @@
 <?php
 include("connect.php");
-
 // Check if session is not already started
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-// Redirect users who are not authenticated or not administrators
-if (!isset($_SESSION["auth"]) || !isset($_SESSION["admin"])) {
+if(!isset($_SESSION["auth"])){
     header("Location: ../login/login.php");
     exit();
 }
-
+else
+{
+    if(!isset($_SESSION["admin"])){
+    header("Location: ../home.php");
+    exit();}
+}
 // Check if the request method is POST
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,12 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the JSON data was successfully decoded
     if ($formValues !== null) {
         // Extract form values
-        $user_id = isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : null;
+        $user_id = htmlspecialchars($formValues['user_id']);
         $full_name = htmlspecialchars($formValues['full_name']);
         $date_birth = htmlspecialchars($formValues['date_birth']);
         $email = htmlspecialchars($formValues['email']);
         $gender = htmlspecialchars($formValues['gender']);
         $is_admin = htmlspecialchars($formValues['is_admin']);
+
 
         // Prepare and execute the SQL query using prepared statements
         $sql = "UPDATE users SET full_name = :full_name, date_of_birth = :date_birth, email = :email, gender = :gender, is_admin = :is_admin WHERE user_id = :user_id";
@@ -45,6 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check for errors and send JSON response
         if ($stmt->rowCount() > 0) {
             echo json_encode(array("success" => true));
+            if($is_admin==0){
+                unset($_SESSION['admin']);
+                session_unset();
+
+            }
         } else {
             echo json_encode(array("success" => false, "error" => "Failed to update user."));
         }

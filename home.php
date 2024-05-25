@@ -80,33 +80,6 @@ if(isset($_SESSION['auth'])){
     }
    
 }
-if(isset($_SESSION['admin'])){
-    // Check if the alert has been shown previously
-    if(!isset($_SESSION['alert_shown'])) {
-        echo "<script>
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
-        });
-        Toast.fire({
-          icon: 'success',
-          title: 'Signed in successfully'
-        });</script>";
-        
-        // Set the flag to indicate that the alert has been shown
-        $_SESSION['alert_shown'] = true;
-    }
-   
-}
-
-
 ?>
 <nav class="bg-white navbar navbar-expand-lg   fixed-top " id="navbar" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
