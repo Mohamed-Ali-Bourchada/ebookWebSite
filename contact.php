@@ -91,7 +91,7 @@ exit();
                 </div>
                 <div class="field">
 
-                    <input type="submit" value="Signup" class="button">
+                    <input type="submit" value="Send message" class="button">
                 </div>
             </form>
         </div>
