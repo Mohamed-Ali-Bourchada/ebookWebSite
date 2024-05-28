@@ -60,7 +60,7 @@
                         {
                         ?>
                         <li class="nav-item">
-                              <a class="nav-link" href="admin_dashboard/index.php">
+                              <a class="nav-link" href="admin_dashboard/list_users.php">
                                Dashboard</a>
                         </li>
                         <?php 
