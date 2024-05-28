@@ -38,7 +38,7 @@
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <!-- <img src="assets/avatar.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
         <i class="bi bi-person-circle me-2" style="font-size:30px"></i>
-        <strong>Profile</strong>
+        <strong>Admin</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         <li><a class="dropdown-item" href="../settings.php">Settings</a></li>
