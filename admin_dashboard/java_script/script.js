@@ -291,9 +291,9 @@ function confirmDeleteBooks(event, actionURL) {
 
 
 // modal for update books data
-async function modal(title,writer, image_url) {
+async function modalBook(title,writer, image_url,file_url) {
     const { value: formValues } = await Swal.fire({
-        title: "Edit User",
+        title: "Edit Book",
         html: `
             <div class="d-flex flex-column">
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -307,6 +307,10 @@ async function modal(title,writer, image_url) {
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <label for="image_url" class="me-2">Image url</label>
                     <input type="text" id="image_url" name="image_url" class="form-control" style="width: 70%;" value="${image_url}">
+                </div>
+                 <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label for="image_url" class="me-2">File url</label>
+                    <input type="text" id="image_url" name="image_url" class="form-control" style="width: 70%;" value="${file_url}">
                 </div>
                 
             </div>

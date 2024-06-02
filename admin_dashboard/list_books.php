@@ -84,10 +84,11 @@ include("dashboard_nav.php");?>
                         </td>
 
                   <td style='width:8em;text-align:center'><input type='checkbox' name='booksToDelete[]' class='form-check-input' value='" . $row['id_book'] . "'>
-                  <button type='button' class='btn btn-info btn-sm text-white' onclick='modal(
+                  <button type='button' class='btn btn-info btn-sm text-white' onclick='modalBook(
                     \"" . addslashes($row['title_book']) . "\",
                     \"" . $row['writer'] . "\",
-                    \"" . addslashes($row['image_url']) . "\"
+                    \"" . addslashes($row['image_url']) . "\",
+                    \"" . addslashes($row['file_url']) . "\"
             
                 )'>Modify</button></td></tr>";
 
