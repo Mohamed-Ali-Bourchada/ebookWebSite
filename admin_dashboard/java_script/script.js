@@ -291,94 +291,96 @@ function confirmDeleteBooks(event, actionURL) {
 
 
 // modal for update books data
-async function modalBook(id,title,writer,image_url,file_url) {
+async function modalBook(id, title, writer, image_url, file_url) {
     const { value: formValues } = await Swal.fire({
         title: "Edit Book",
         html: `
-           <div class="d-flex flex-column">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <label for="title" class="me-2">Title</label>
-        <input type="text" id="title" name="title" class="form-control" style="width: 70%;" value="${title}">
-    </div>
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <label for="writer" class="me-2">Writer</label>
-        <input type="text" id="writer" name="writer" class="form-control" style="width: 70%;" value="${writer}">
-    </div>
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <label for="image_url" class="me-2">Image URL</label>
-        <input type="file" id="image_url" name="image_url" class="form-control" style="width: 70%;">
-    </div>
-    <div class="d-flex justify-content-between align-items-center mb-2">
-        <label for="file_url" class="me-2">File URL</label>
-        <input type="file" id="file_url" name="file_url" class="form-control" style="width: 70%;">
-    </div>
-</div>
-
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label for="title" class="me-2">Title</label>
+                    <input type="text" id="title" name="title" class="form-control" style="width: 70%;" value="${title}">
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label for="writer" class="me-2">Writer</label>
+                    <input type="text" id="writer" name="writer" class="form-control" style="width: 70%;" value="${writer}">
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label for="image_url" class="me-2">Image URL</label>
+                    <input type="file" id="image_url" name="image_url" class="form-control" style="width: 70%;">
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label for="file_url" class="me-2">File URL</label>
+                    <input type="file" id="file_url" name="file_url" class="form-control" style="width: 70%;">
+                </div>
+            </div>
         `,
         focusConfirm: false,
         preConfirm: () => {
             const TITLE = document.getElementById("title").value;
             const WRITER = document.getElementById("writer").value;
-            var imageURL = document.getElementById("image_url").value;
-            var fileURL = document.getElementById("file_url").value;
+            const imageFile = document.getElementById("image_url").files[0];
+            const fileFile = document.getElementById("file_url").files[0];
 
-
-            // if(imageURL==""){
-            //     imageURL = image_url;
-            // }
-            // if(fileURL==""){
-            //     fileURL = file_url;
-            // }
-            
-            
             // Validate fields
             if (!TITLE || !WRITER) {
                 Swal.showValidationMessage('All fields are required');
                 return false;
             }
-            // // Validate writer(only alphabetic characters and spaces)
+
+            // Validate writer (only alphabetic characters and spaces)
             const writerPattern = /^[A-Za-z\s]+$/;
             if (!writerPattern.test(WRITER)) {
                 Swal.showValidationMessage('Writer must contain only alphabetic characters and spaces');
                 return false;
             }
-            //// Validate Title
 
+            //// Validate Title
             const titlePattern = /^(?=.*[A-Za-z])(?=.*\d)?[A-Za-z0-9\s]+$/;
             if (!titlePattern.test(TITLE)) {
-             Swal.showValidationMessage('Title must contain alphabetic characters, and can contain digits and spaces, but not digits only');
-            return false;
+                Swal.showValidationMessage('Title must contain alphabetic characters, and can contain digits and spaces, but not digits only');
+                return false;
             }
-            return {
-                id: id,
-                title: TITLE,
-                writer: WRITER,
-                image: imageURL,
-                file: fileURL
-            };
+
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('id', id);
+            formData.append('title', TITLE);
+            formData.append('writer', WRITER);
+
+            // Check if image file is provided and append to form data
+            if (imageFile) {
+                formData.append('image_url', imageFile);
+            }
+
+            // Check if file file is provided and append to form data
+            if (fileFile) {
+                formData.append('file_url', fileFile);
+            }
+
+            return formData;
         }
     });
 
     if (formValues) {
         // Send the data to the PHP endpoint via AJAX
         fetch('actions/update_book.php', {
-            method: 'POST',
+             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formValues)
-        }).then(function(response){
+        }).then(function(response) {
             return response.json();
-        }).then(function(result){
+        }).then(function(result) {
             if (result.success) {
                 Swal.fire('Success', 'Book updated successfully', 'success');
-                    setTimeout(function(){
-                        window.location.reload();
-                    }, 1500);
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1500);
             } else {
                 Swal.fire('Error', result.error, 'error');
             }
-        }).catch(function(error){
+        }).catch(function(error) {
             console.error('Error:', error);
             Swal.fire('Error', 'An error occurred while updating the book', 'error');
         });

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $writer = htmlspecialchars($formValues['writer']);
         $image_url = htmlspecialchars($formValues['image_url']);
         $file_url = htmlspecialchars($formValues['file_url']);
-
+       
         // Start building the SQL query
         $sql = "UPDATE books SET title = :title, writer = :writer";
         

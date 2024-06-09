@@ -64,38 +64,33 @@ include("dashboard_nav.php");?>
         </tr>
         </thead>
         <tbody>
-        <?php
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr>
-                    <td>" . $row['id_book'] . "</td>
-                    <td style='width:20em'>" . $row['title_book'] . "</td>
-                    <td style='width:10em'>" . $row['writer'] . "</td>";
-                   echo "<td style='width:10em;text-align:center'><img src='../" . $row['image_url'] . "' style='width:100px'/></td>
-                   ";
-                    echo "<td style='width:15em'>
-                            <div class='card' style='width: 15rem;'>
-                                <div class='card-body'>
-                                    <p class='card-text'>Click below to view the PDF:</p>
-                                    <a href='../" . $row['file_url'] . "' class='btn btn-primary' target='_blank'>
-                                        <i class='bi bi-file-earmark-pdf' style='font-size: 1.2rem; margin-right: 8px;'></i> View PDF
-                                    </a>
-                                </div>
-                            </div>
-                        </td>
+<?php
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo "<tr>
+            <td>" . $row['id_book'] . "</td>
+            <td style='width:20em'>" . $row['title_book'] . "</td>
+            <td style='width:10em'>" . $row['writer'] . "</td>
+            <td style='width:10em;text-align:center'><img src='../" . $row['image_url'] . "' style='width:100px'/></td>
+            <td style='width:15em'>
+                <div class='card' style='width: 15rem;'>
+                    <div class='card-body'>
+                        <p class='card-text'>Click below to view the PDF:</p>
+                        <a href='../" . $row['file_url'] . "' class='btn btn-primary' target='_blank'>
+                            <i class='bi bi-file-earmark-pdf' style='font-size: 1.2rem; margin-right: 8px;'></i> View PDF
+                        </a>
+                    </div>
+                </div>
+            </td>
+            <td style='width:8em;text-align:center'>
+                <input type='checkbox' name='booksToDelete[]' class='form-check-input' value='" . $row['id_book'] . "'>
+                <button type='button' class='btn btn-info btn-sm text-white' onclick=\"modalBook('" . addslashes($row['id_book']) . "', '" . addslashes($row['title_book']) . "', '" . addslashes($row['writer']) . "', '" . addslashes($row['image_url']) . "', '" . addslashes($row['file_url']) . "')\">Modify</button>
+            </td>
+        </tr>";
+}
+?>
 
-                  <td style='width:8em;text-align:center'><input type='checkbox' name='booksToDelete[]' class='form-check-input' value='" . $row['id_book'] . "'>
-                  <button type='button' class='btn btn-info btn-sm text-white' onclick='modalBook(
-                     \"" . addslashes($row['id_book']) . "\",
-                    \"" . addslashes($row['title_book']) . "\",
-                    \"" . $row['writer'] . "\",
-                    \"" . addslashes($row['image_url']) . "\",
-                    \"" . addslashes($row['file_url']) . "\"
-            
-                )'>Modify</button></td></tr>";
 
-                  
-        }
-        ?>
+
         </tbody>
     </table>
     </form>
