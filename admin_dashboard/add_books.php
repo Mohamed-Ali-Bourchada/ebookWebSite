@@ -148,16 +148,29 @@ if (isset($_POST['submit'])) {
 
     if ($book_row_count == 0) {
         // Move the uploaded files to the desired directory
-        $target_dir_img = "assets/books_images/";
-        $target_dir_files = "assets/pdfs_files/";
+        $target_dir_img = "../assets/books_images/";
+        $target_dir_files = "../assets/pdfs_files/";
         $image_target_file = $target_dir_img . basename($image_url);
         $file_target_file = $target_dir_files . basename($file_url);
+
+        // Ensure directories exist
+        if (!is_dir($target_dir_img)) {
+            mkdir($target_dir_img, 0777, true);
+        }
+        if (!is_dir($target_dir_files)) {
+            mkdir($target_dir_files, 0777, true);
+        }
+
+        // Move uploaded files to the target directories
+        if (move_uploaded_file($_FILES["image_url"]["tmp_name"], $image_target_file) && move_uploaded_file($_FILES["file_url"]["tmp_name"], $file_target_file)) {
+            $image_target_db = "assets/books_images/" . basename($image_url);
+            $file_target_db = "assets/pdfs_files/" . basename($file_url);
             $sql = "INSERT INTO books (title_book, image_url, writer, file_url) VALUES (:title_book, :image_url, :writer, :file_url)";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':title_book', $title_book);
-            $stmt->bindParam(':image_url', $image_target_file);
+            $stmt->bindParam(':image_url', $image_target_db);
             $stmt->bindParam(':writer', $writer);
-            $stmt->bindParam(':file_url', $file_target_file);
+            $stmt->bindParam(':file_url', $file_target_db);
 
             if ($stmt->execute()) {
                 echo "<script>
@@ -178,8 +191,17 @@ if (isset($_POST['submit'])) {
                         });
                       </script>";
             }
-        } 
-     else {
+        } else {
+            echo "<script>
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Failed to upload files. Please try again.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                  </script>";
+        }
+    } else {
         echo "<script>
                 Swal.fire({
                     title: 'Error',

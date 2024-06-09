@@ -291,89 +291,77 @@ function confirmDeleteBooks(event, actionURL) {
 
 
 // modal for update books data
-async function modalBook(title,writer, image_url,file_url) {
+async function modalBook(id,title,writer,image_url,file_url) {
     const { value: formValues } = await Swal.fire({
         title: "Edit Book",
         html: `
-            <div class="d-flex flex-column">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <label for="title" class="me-2">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" style="width: 70%;" value="${title}">
-                </div>
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <label for="writer" class="me-2">Writer</label>
-                    <input type="text" id="writer" name="writer" class="form-control" style="width: 70%;" value="${writer}">
-                </div>
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <label for="image_url" class="me-2">Image url</label>
-                    <input type="text" id="image_url" name="image_url" class="form-control" style="width: 70%;" value="${image_url}">
-                </div>
-                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <label for="image_url" class="me-2">File url</label>
-                    <input type="text" id="image_url" name="image_url" class="form-control" style="width: 70%;" value="${file_url}">
-                </div>
-                
-            </div>
+           <div class="d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <label for="title" class="me-2">Title</label>
+        <input type="text" id="title" name="title" class="form-control" style="width: 70%;" value="${title}">
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <label for="writer" class="me-2">Writer</label>
+        <input type="text" id="writer" name="writer" class="form-control" style="width: 70%;" value="${writer}">
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <label for="image_url" class="me-2">Image URL</label>
+        <input type="file" id="image_url" name="image_url" class="form-control" style="width: 70%;">
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <label for="file_url" class="me-2">File URL</label>
+        <input type="file" id="file_url" name="file_url" class="form-control" style="width: 70%;">
+    </div>
+</div>
+
         `,
         focusConfirm: false,
         preConfirm: () => {
-            const fullName = document.getElementById("title").value;
-            const dateBirth = document.getElementById("writer").value;
-            const email = document.getElementById("image_url").value;
+            const TITLE = document.getElementById("title").value;
+            const WRITER = document.getElementById("writer").value;
+            var imageURL = document.getElementById("image_url").value;
+            var fileURL = document.getElementById("file_url").value;
+
+
+            // if(imageURL==""){
+            //     imageURL = image_url;
+            // }
+            // if(fileURL==""){
+            //     fileURL = file_url;
+            // }
             
             
             // Validate fields
-            if (!fullName || !dateBirth || !email || !gender || isAdmin === undefined) {
+            if (!TITLE || !WRITER) {
                 Swal.showValidationMessage('All fields are required');
                 return false;
             }
-            // // Validate full name (only alphabetic characters and spaces)
-            // const fullNamePattern = /^[A-Za-z\s]+$/;
-            // if (!fullNamePattern.test(fullName)) {
-            //     Swal.showValidationMessage('Full Name must contain only alphabetic characters and spaces');
-            //     return false;
-            // }
-            //   const datePattern = /^\d{4}-\d{2}-\d{2}$/;
-            // if (!datePattern.test(dateBirth)) {
-            //     Swal.showValidationMessage('Invalid date format. Use YYYY-MM-DD');
-            //     return false;
-            // }
+            // // Validate writer(only alphabetic characters and spaces)
+            const writerPattern = /^[A-Za-z\s]+$/;
+            if (!writerPattern.test(WRITER)) {
+                Swal.showValidationMessage('Writer must contain only alphabetic characters and spaces');
+                return false;
+            }
+            //// Validate Title
 
-            // // Check if age is higher than 12
-            // const today = new Date();
-            // const birthDate = new Date(dateBirth);
-            // let age = today.getFullYear() - birthDate.getFullYear();
-            // const monthDiff = today.getMonth() - birthDate.getMonth();
-            // if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-            //     age--;
-            // }
-            // if (age < 13) {
-            //     Swal.showValidationMessage('User must be older than 12 years');
-            //     return false;
-            // }
-            // // Validate email format
-            // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            // if (!emailPattern.test(email)) {
-            //     Swal.showValidationMessage('Invalid email format');
-            //     return false;
-            // }
-            
-         
-
+            const titlePattern = /^(?=.*[A-Za-z])(?=.*\d)?[A-Za-z0-9\s]+$/;
+            if (!titlePattern.test(TITLE)) {
+             Swal.showValidationMessage('Title must contain alphabetic characters, and can contain digits and spaces, but not digits only');
+            return false;
+            }
             return {
-                user_id: user_id,
-                full_name: fullName,
-                date_birth: dateBirth,
-                email: email,
-                gender: gender,
-                is_admin: isAdmin
+                id: id,
+                title: TITLE,
+                writer: WRITER,
+                image: imageURL,
+                file: fileURL
             };
         }
     });
 
     if (formValues) {
         // Send the data to the PHP endpoint via AJAX
-        fetch('actions/update_user.php', {
+        fetch('actions/update_book.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -383,22 +371,16 @@ async function modalBook(title,writer, image_url,file_url) {
             return response.json();
         }).then(function(result){
             if (result.success) {
-                Swal.fire('Success', 'User updated successfully', 'success');
-                if (result.is_admin == 0) {
-                    setTimeout(function(){
-                        window.location.href = "../signOut.php";
-                    }, 1500);
-                } else {
+                Swal.fire('Success', 'Book updated successfully', 'success');
                     setTimeout(function(){
                         window.location.reload();
                     }, 1500);
-                }
             } else {
                 Swal.fire('Error', result.error, 'error');
             }
         }).catch(function(error){
             console.error('Error:', error);
-            Swal.fire('Error', 'An error occurred while updating the user', 'error');
+            Swal.fire('Error', 'An error occurred while updating the book', 'error');
         });
     }
 }

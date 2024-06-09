@@ -85,6 +85,7 @@ include("dashboard_nav.php");?>
 
                   <td style='width:8em;text-align:center'><input type='checkbox' name='booksToDelete[]' class='form-check-input' value='" . $row['id_book'] . "'>
                   <button type='button' class='btn btn-info btn-sm text-white' onclick='modalBook(
+                     \"" . addslashes($row['id_book']) . "\",
                     \"" . addslashes($row['title_book']) . "\",
                     \"" . $row['writer'] . "\",
                     \"" . addslashes($row['image_url']) . "\",
