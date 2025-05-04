@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2024 at 04:23 PM
+-- Generation Time: May 04, 2025 at 04:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -103,15 +103,17 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `gender` char(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `full_name`, `date_of_birth`, `email`, `password`, `gender`, `created_at`) VALUES
-(1, 'bourchada mohamed ali', '2003-05-27', 'mohamedbourchada123@gmail.com', '$2y$10$lPljnYO0z/XLKvY94F9F5Oxz8q7em0ysSUy6q5Rs62hqJRkpR6HNS', 'M', '2024-05-24 14:14:50');
+INSERT INTO `users` (`user_id`, `full_name`, `date_of_birth`, `email`, `password`, `gender`, `created_at`, `is_admin`) VALUES
+(1, 'bourchada mohamed ali', '2003-05-27', 'mohamed@gmail.com', '$2y$10$lPljnYO0z/XLKvY94F9F5Oxz8q7em0ysSUy6q5Rs62hqJRkpR6HNS', 'M', '2024-05-24 14:14:50', 0),
+(2, 'mohamed', '2003-02-22', 'mohamedbourchada123@gmail.com', '$2y$10$ukibB2BmwZu5iqhAwXB.UO9EbtG3/uuMN44CTdbML0fAZjpudOYk6', 'M', '2025-05-04 13:28:02', 1);
 
 --
 -- Indexes for dumped tables
@@ -158,7 +160,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
